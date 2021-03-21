@@ -1,20 +1,28 @@
-FROM reap2sow1/jenkins-base:v1.0.5
+# for multi-stage builder reference: 
+# https://docs.docker.com/develop/develop-images/multistage-build/
+# WD ==> WORKING_DIR...no there is not a way to persist env vars across multi-stage builds:
+# https://stackoverflow.com/questions/53541362/persist-env-in-multi-stage-docker-build
+FROM reap2sow1/jenkins-base:v1.0.6 AS builder
 
-ARG BRANCH
-ARG COMMIT
-LABEL tech.conneracrosby.jenkins.torkel.branch=${BRANCH}
-LABEL tech.conneracrosby.jenkins.torkel.commit=${COMMIT}
-LABEL tech.conneracrosby.jenkins.torkel.vcs-repo="https://github.com/reap2sow1/jenkins-docker-torkel"
-
-# WD ==> WORKING_DIR
 ENV WD "/jenkins-torkel"
 WORKDIR "$WD"
 
 USER root
-RUN chown jenkins "$WD"
+RUN chown jenkins:jenkins "$WD"
+
 USER jenkins
 COPY jobs.toml "$WD"
 RUN git clone --quiet "$JOB_YAML_GENERATOR_REPO_URL" "$(basename "$JOB_YAML_GENERATOR_REPO_URL")"
-RUN cp "${JOB_YAML_GENERATOR_REPOFILE_PATH}" "$PWD"
-# TODO(conner@conneracrosby.tech): the below is a work around, but python packages installed appear to be only in the RUN instruction's shell instance (and non-persistent on the filesystem!)
-RUN pip3 install ruamel.yaml toml; ./$(basename "$JOB_YAML_GENERATOR_REPOFILE_PATH")
+RUN cp "${JOB_YAML_GENERATOR_REPOFILE_PATH}" "$WD"
+RUN ./$(basename "$JOB_YAML_GENERATOR_REPOFILE_PATH")
+
+FROM reap2sow1/jenkins-base:v1.0.6
+
+ARG BRANCH
+ARG COMMIT
+LABEL tech.conneracrosby.jenkins.torkel.branch="${BRANCH}"
+LABEL tech.conneracrosby.jenkins.torkel.commit="${COMMIT}"
+LABEL tech.conneracrosby.jenkins.torkel.vcs-repo="https://github.com/reap2sow1/jenkins-docker-torkel"
+
+ENV WD "/jenkins-torkel"
+COPY --from=builder "$WD/$CASC_JENKINS_CONFIG_FILENAME" "$JENKINS_HOME"
