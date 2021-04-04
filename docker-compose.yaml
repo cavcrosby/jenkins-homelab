@@ -1,0 +1,30 @@
+# version of schema
+# NOTE: to use the deploy configurations append --compatibility
+version: "3.7"
+
+services:
+  CI:
+    image: "reap2sow1/jenkins-torkel:v1.0.1"
+    container_name: "jenkins"
+    ports:
+      - 8080:8080
+      # needed to run builds on non-main nodes
+      - 50000:50000
+    deploy:
+      resources:
+        limits: 
+          cpus: "1"
+          memory: "2g"
+    environment:
+      JENKINS_URL: ""
+      JENKINS_ADMIN_ID: ""
+      JENKINS_ADMIN_PASSWORD: ""
+      JENKINS_ADMIN_FULLNAME: ""
+      JENKINS_ADMIN_EMAIL: ""
+      JENKINS_ADMIN_EMAIL_SECRET: ""
+      SMTP_SERVER_ADDR: ""
+      JENKINS_GITHUB_API_KEY: ""
+      JENKINS_NODE_NAME: ""
+      JENKINS_NODE_DESC: ""
+      JENKINS_NODE_NUM_EXECUTORS: 
+      JENKINS_NODE_REMOTE_ROOT_DIR: ""
