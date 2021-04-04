@@ -3,7 +3,7 @@
 # WD ==> WORKING_DIR...no there is not a way to persist env vars across multi-stage builds:
 # https://stackoverflow.com/questions/53541362/persist-env-in-multi-stage-docker-build
 ### setting up WD and needed 'resources' - builder_1
-FROM reap2sow1/jenkins-base:v1.0.7 AS builder_1
+FROM reap2sow1/jenkins-base:v1.0.8 AS builder_1
 
 ENV WD "/jenkins-torkel"
 ENV JCASC_UTIL_SCRIPT_NAME "jcasc.py"
@@ -31,7 +31,7 @@ RUN ./"${JCASC_UTIL_SCRIPT_NAME}" addjobs --transform-rffw > "$CASC_JENKINS_CONF
 ###
 
 ### setting up WD and needed 'resources' - builder_2
-FROM reap2sow1/jenkins-base:v1.0.7 AS builder_2
+FROM reap2sow1/jenkins-base:v1.0.8 AS builder_2
 
 ENV WD "/jenkins-torkel"
 ENV JCASC_UTIL_SCRIPT_NAME "jcasc.py"
@@ -57,7 +57,7 @@ RUN ./"${JCASC_UTIL_SCRIPT_NAME}" addnode-placeholder --numnodes 1 > "$CASC_JENK
 ###
 
 ### 
-FROM reap2sow1/jenkins-base:v1.0.7
+FROM reap2sow1/jenkins-base:v1.0.8
 
 ARG BRANCH
 ARG COMMIT
