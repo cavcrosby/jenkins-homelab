@@ -1,0 +1,50 @@
+#!/bin/bash
+#
+# Small script that sets the stage for
+# building this Docker image.
+
+getopts "c" opt
+
+case "$opt" in
+    # -c is for 'clean'
+	# TODO(conner@conneracrosby.tech): usage str!
+    "c")    CLEAN="true"
+            ;;
+    *)      CLEAN=
+			;;
+esac
+
+set -e
+PROGRAM_NAME=$(basename "$0")
+JCASC_UTIL_FILENAME="jcasc.py"
+# NOTE: LOCAL_CASC_JENKINS_CONFIG_FILENAME should match 
+# the same named ENV var in the 'Dockerfile', the file will COPY'ed 
+# into the new image!
+LOCAL_CASC_JENKINS_CONFIG_FILENAME="casc.yaml"
+CHILD_SPECFIC_CASC_FILENAME="child-casc.yaml"
+TEMP_CASC_FILENAME="temp-casc.yaml"
+
+clean () {
+	./"$JCASC_UTIL_FILENAME" setup --clean
+	if [ -f "$LOCAL_CASC_JENKINS_CONFIG_FILENAME" ]; then
+    	rm --force "$LOCAL_CASC_JENKINS_CONFIG_FILENAME"
+	fi
+}
+
+if [ -z "$(find "$PWD" -name "$JCASC_UTIL_FILENAME")" ]; then
+	echo "${PROGRAM_NAME}: ${JCASC_UTIL_FILENAME} is not in the PWD!"
+	exit 1
+fi
+
+if [ -n "$CLEAN" ]; then
+	clean
+	exit 0
+fi
+
+./"$JCASC_UTIL_FILENAME" setup
+./"$JCASC_UTIL_FILENAME" addjobs --transform-rffw --merge-yaml "./$CHILD_SPECFIC_CASC_FILENAME" > "$TEMP_CASC_FILENAME"
+./"$JCASC_UTIL_FILENAME" addnode-placeholder --numnodes 1 --casc-path "$TEMP_CASC_FILENAME" > "$LOCAL_CASC_JENKINS_CONFIG_FILENAME"
+
+rm --force "$TEMP_CASC_FILENAME"
+
+exit 0
