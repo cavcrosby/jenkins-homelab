@@ -4,7 +4,7 @@ version: "3.7"
 
 services:
   CI:
-    image: "reap2sow1/jenkins-torkel:v1.0.3"
+    image: "reap2sow1/jenkins-torkel:latest"
     container_name: "jenkins"
     ports:
       - 8080:8080
@@ -24,8 +24,8 @@ services:
       JENKINS_ADMIN_EMAIL_SECRET: ""
       SMTP_SERVER_ADDR: ""
       JENKINS_GITHUB_API_KEY: ""
-      JENKINS_MAIN_NODE_NUM_EXECUTORS:
-      JENKINS_NODE_NAME1: ""
-      JENKINS_NODE_DESC1: ""
-      JENKINS_NODE_NUM_EXECUTORS1: 
-      JENKINS_NODE_REMOTE_ROOT_DIR1: ""
+      JENKINS_MAIN_NUM_EXECUTORS:
+      JENKINS_AGENT_NAME1: ""
+      JENKINS_AGENT_DESC1: ""
+      JENKINS_AGENT_NUM_EXECUTORS1: 
+      JENKINS_AGENT_REMOTE_ROOT_DIR1: ""

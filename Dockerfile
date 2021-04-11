@@ -1,4 +1,4 @@
-FROM reap2sow1/jenkins-base:v1.0.9
+FROM reap2sow1/jenkins-base:latest
 
 ARG BRANCH
 ARG COMMIT

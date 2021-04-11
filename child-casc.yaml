@@ -4,4 +4,4 @@
 # NOTE2: configurations here will overwrite 
 # those in the base image's 'casc.yaml'
 jenkins:
-  numExecutors: "${JENKINS_MAIN_NODE_NUM_EXECUTORS}"
+  numExecutors: "${JENKINS_MAIN_NUM_EXECUTORS}"

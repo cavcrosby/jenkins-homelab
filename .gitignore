@@ -139,3 +139,4 @@ cython_debug/
 
 # repo specfic
 jcasc.py
+*.yaml
