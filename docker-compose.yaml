@@ -15,6 +15,8 @@ services:
         limits: 
           cpus: "1"
           memory: "2g"
+    volumes:
+      - jenkins_home:/var/jenkins_home
     environment:
       JENKINS_URL: ""
       JENKINS_ADMIN_ID: ""
@@ -31,3 +33,6 @@ services:
       JENKINS_AGENT_DESC1: ""
       JENKINS_AGENT_NUM_EXECUTORS1: 
       JENKINS_AGENT_REMOTE_ROOT_DIR1: ""
+
+volumes:
+  jenkins_home:
