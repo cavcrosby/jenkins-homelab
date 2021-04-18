@@ -25,14 +25,14 @@ CHILD_SPECFIC_CASC_FILENAME="child-casc.yaml"
 TEMP_CASC_FILENAME="temp-casc.yaml"
 
 clean () {
-	./"$JCASC_UTIL_FILENAME" setup --clean
+	"$JCASC_UTIL_FILENAME" setup --clean
 	if [ -f "$LOCAL_CASC_JENKINS_CONFIG_FILENAME" ]; then
     	rm --force "$LOCAL_CASC_JENKINS_CONFIG_FILENAME"
 	fi
 }
 
-if [ -z "$(find "$PWD" -maxdepth 1 -name "$JCASC_UTIL_FILENAME")" ]; then
-	echo "${PROGRAM_NAME}: ${JCASC_UTIL_FILENAME} is not in the PWD!"
+if [ -z "$(which "$JCASC_UTIL_FILENAME")" ]; then
+	echo "${PROGRAM_NAME}: ${JCASC_UTIL_FILENAME} cannot be found on the PATH!"
 	exit 1
 fi
 
@@ -41,9 +41,9 @@ if [ -n "$CLEAN" ]; then
 	exit 0
 fi
 
-./"$JCASC_UTIL_FILENAME" setup
-./"$JCASC_UTIL_FILENAME" addjobs --transform-rffw --merge-yaml "./$CHILD_SPECFIC_CASC_FILENAME" > "$TEMP_CASC_FILENAME"
-./"$JCASC_UTIL_FILENAME" addnode-placeholder --numnodes 1 --casc-path "$TEMP_CASC_FILENAME" > "$LOCAL_CASC_JENKINS_CONFIG_FILENAME"
+"$JCASC_UTIL_FILENAME" setup
+"$JCASC_UTIL_FILENAME" addjobs --transform-rffw --merge-yaml "./$CHILD_SPECFIC_CASC_FILENAME" > "$TEMP_CASC_FILENAME"
+"$JCASC_UTIL_FILENAME" addagent-placeholder --numagents 1 --casc-path "$TEMP_CASC_FILENAME" > "$LOCAL_CASC_JENKINS_CONFIG_FILENAME"
 
 rm --force "$TEMP_CASC_FILENAME"
 
