@@ -17,7 +17,7 @@ usage () {
 	cat << _EOF_
 Usage: $PROGRAM_NAME [-c] [-h]
 
-Description: Creates/pulls the needed material to perform a docker build. 
+Creates/pulls the needed material to perform a docker build. 
 
 Options:
 	-c	clean PWD of contents created from previous setup call
