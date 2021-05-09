@@ -40,9 +40,7 @@ _EOF_
 #   1 - JCASC_UTIL_FILENAME clean error
 #######################################
 clean () {
-	if [ -f "$LOCAL_CASC_JENKINS_CONFIG_FILENAME" ]; then
-    	rm --force "$LOCAL_CASC_JENKINS_CONFIG_FILENAME"
-	fi
+    rm --force "$LOCAL_CASC_JENKINS_CONFIG_FILENAME"
 	"$JCASC_UTIL_FILENAME" setup --clean
 	return
 }
