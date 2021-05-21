@@ -1,10 +1,10 @@
-FROM reap2sow1/jenkins-base:latest
+FROM cavcrosby/jenkins-base:latest
 
 ARG BRANCH
 ARG COMMIT
-LABEL tech.conneracrosby.jenkins.torkel.branch="${BRANCH}"
-LABEL tech.conneracrosby.jenkins.torkel.commit="${COMMIT}"
-LABEL tech.conneracrosby.jenkins.torkel.vcs-repo="https://github.com/cavcrosby/jenkins-docker-torkel"
+LABEL tech.cavcrosby.jenkins.torkel.branch="${BRANCH}"
+LABEL tech.cavcrosby.jenkins.torkel.commit="${COMMIT}"
+LABEL tech.cavcrosby.jenkins.torkel.vcs-repo="https://github.com/cavcrosby/jenkins-docker-torkel"
 
 # WD ==> WORKING_DIR...
 ENV WD "/jenkins-torkel"

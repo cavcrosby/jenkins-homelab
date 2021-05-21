@@ -4,7 +4,7 @@ version: "3.7"
 
 services:
   CI:
-    image: "reap2sow1/jenkins-torkel:latest"
+    image: "cavcrosby/jenkins-torkel:latest"
     container_name: "jenkins"
     ports:
       - 8080:8080
