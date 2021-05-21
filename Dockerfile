@@ -4,7 +4,7 @@ ARG BRANCH
 ARG COMMIT
 LABEL tech.conneracrosby.jenkins.torkel.branch="${BRANCH}"
 LABEL tech.conneracrosby.jenkins.torkel.commit="${COMMIT}"
-LABEL tech.conneracrosby.jenkins.torkel.vcs-repo="https://github.com/reap2sow1/jenkins-docker-torkel"
+LABEL tech.conneracrosby.jenkins.torkel.vcs-repo="https://github.com/cavcrosby/jenkins-docker-torkel"
 
 # WD ==> WORKING_DIR...
 ENV WD "/jenkins-torkel"
