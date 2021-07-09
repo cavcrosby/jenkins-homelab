@@ -17,7 +17,7 @@ USER root
 RUN chown jenkins:jenkins "$WD"
 
 USER jenkins
-# COPY instruction only copies the contents of <src> into <dst>
+# COPY instruction only copies the contents of <src> into <dst>,
 # also per the Docker reference:
 # "If <dest> doesn’t exist, it is created along with all missing directories in its path."
 COPY "$REPOS_TO_TRANSFER_DIR_NAME" "$WD/$REPOS_TO_TRANSFER_DIR_NAME"

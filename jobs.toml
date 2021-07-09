@@ -1,5 +1,4 @@
 [git]
 repo_urls = [
     "https://github.com/cavcrosby/jenkins-packerbuilds",
-    "https://github.com/cavcrosby/shellfuncs"
 ]

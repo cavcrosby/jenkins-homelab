@@ -1,7 +1,7 @@
-# NOTE: purpose of this casc file is to be merged into the 
+# Purpose of this casc file is to be merged into the 
 # base image's 'casc.yaml'...whatever the filename is!
 #
-# NOTE2: configurations here will overwrite 
-# those in the base image's 'casc.yaml'
+# Configurations here will overwrite those in the base image's 'casc.yaml'.
+
 jenkins:
   numExecutors: "${JENKINS_MAIN_NUM_EXECUTORS}"

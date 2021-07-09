@@ -1,5 +1,5 @@
 # version of schema
-# NOTE: to use the deploy configurations append --compatibility
+# to use the 'deploy' configurations append --compatibility
 version: "3.7"
 
 services:
