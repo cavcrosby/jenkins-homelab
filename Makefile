@@ -30,7 +30,7 @@ _check_executables := $(foreach e,${executables},$(if $(shell command -v ${e}),p
 ${HELP}:
 	# inspired by the makefiles of the Linux kernel and Mercurial
 >	@echo 'Available make targets:'
->	@echo '  ${CONFIGS}       - creates/pulls the needed material to perform a docker build.'
+>	@echo '  ${CONFIGS}     - creates/pulls the needed material to perform a docker build.'
 >	@echo '  ${CLEAN}       - removes files generated from the ${CONFIGS} target.'
 
 .PHONY: ${CONFIGS}
