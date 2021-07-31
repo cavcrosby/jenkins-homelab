@@ -14,9 +14,9 @@ CONFIGS = configs
 CLEAN = clean
 
 # executables
-JCASC_PY = jcasc.py
+JCASCUTIL = jcascutil
 executables = \
-	${JCASC_PY}
+	${JCASCUTIL}
 
 # simply expanded variables
 
@@ -35,12 +35,12 @@ ${HELP}:
 
 .PHONY: ${CONFIGS}
 ${CONFIGS}:
->	${JCASC_PY} setup
->	${JCASC_PY} addjobs --transform-rffw --merge-yaml "${CHILD_CASC_FILE}" > "${TEMP_CASC_FILE}"
->	${JCASC_PY} addagent-placeholder --numagents 1 --casc-path "${TEMP_CASC_FILE}" > "${CASC_FILE}"
+>	${JCASCUTIL} setup
+>	${JCASCUTIL} addjobs --transform-rffw --merge-yaml "${CHILD_CASC_FILE}" > "${TEMP_CASC_FILE}"
+>	${JCASCUTIL} addagent-placeholder --numagents 1 --casc-path "${TEMP_CASC_FILE}" > "${CASC_FILE}"
 >	rm --force "${TEMP_CASC_FILE}"
 
 .PHONY: ${CLEAN}
 ${CLEAN}:
 >	rm --force "${CASC_FILE}"
->	${JCASC_PY} setup --clean
+>	${JCASCUTIL} setup --clean
