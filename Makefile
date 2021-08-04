@@ -36,7 +36,7 @@ ${HELP}:
 .PHONY: ${CONFIGS}
 ${CONFIGS}:
 >	${JCASCUTIL} setup
->	${JCASCUTIL} addjobs --transform-rffw --merge-yaml "${CHILD_CASC_FILE}" > "${TEMP_CASC_FILE}"
+>	${JCASCUTIL} addjobs --transform-rffw --merge-casc "${CHILD_CASC_FILE}" > "${TEMP_CASC_FILE}"
 >	${JCASCUTIL} addagent-placeholder --numagents 1 --casc-path "${TEMP_CASC_FILE}" > "${CASC_FILE}"
 >	rm --force "${TEMP_CASC_FILE}"
 
