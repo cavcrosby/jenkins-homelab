@@ -20,11 +20,9 @@ executables = \
 
 # simply expanded variables
 
-# TODO(cavcrosby): using a shorter variable name w/comment < a tad longer variable name with no comment!
-# NOTES: e ==> executable, certain executables should exist before
-# running. Inspired from:
+# certain executables should exist before running, inspired from:
 # https://stackoverflow.com/questions/5618615/check-if-a-program-exists-from-a-makefile#answer-25668869
-_check_executables := $(foreach e,${executables},$(if $(shell command -v ${e}),pass,$(error "No ${e} in PATH")))
+_check_executables := $(foreach exec,${executables},$(if $(shell command -v ${exec}),pass,$(error "No ${exec} in PATH")))
 
 .PHONY: ${HELP}
 ${HELP}:
