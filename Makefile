@@ -44,7 +44,7 @@ ANSISRC = $(shell find . \
 JCASCUTIL = jcascutil.py
 
 # simply expanded variables
-override executables := \
+executables := \
 	${JCASCUTIL}\
 	${python_executables}\
 	${docker_executables}
