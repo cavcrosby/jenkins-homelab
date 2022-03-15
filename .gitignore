@@ -138,5 +138,5 @@ dmypy.json
 cython_debug/
 
 # repo specific
-*.yaml
 localhost
+*.yaml
