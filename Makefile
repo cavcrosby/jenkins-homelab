@@ -34,7 +34,7 @@ include ansible.mk
 ANSISRC = $(shell find . \
 	\( \
 		\( -type f \) \
-		-or \( -name '*.yml' \) \
+		-and \( -name '*.yml' \) \
 	\) \
 	-and ! \( -name '.python-version' \) \
 	-and ! \( -path '*.git*' \) \
