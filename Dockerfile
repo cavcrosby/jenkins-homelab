@@ -1,4 +1,4 @@
-FROM cavcrosby/jenkins-base:latest
+FROM cavcrosby/jenkins-base:v2.2.2
 
 ARG BRANCH
 ARG COMMIT
