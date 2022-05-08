@@ -1,6 +1,6 @@
 include base.mk
 
-# recursive variables
+# recursively expanded variables
 CASC_FILE = casc.yaml
 CHILD_CASC_FILE = child-casc.yaml
 TEMP_CASC_FILE = temp-casc.yaml
