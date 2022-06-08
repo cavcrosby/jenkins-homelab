@@ -23,7 +23,7 @@ include docker.mk
 export CONTAINER_NAME = jenkins-torkel
 export CONTAINER_NETWORK = jbc1
 export CONTAINER_VOLUME = jenkins_home:/var/jenkins_home
-DOCKER_REPO = cavcrosby/jenkins-torkel
+export DOCKER_REPO = cavcrosby/jenkins-torkel
 DOCKER_VCS_LABEL = tech.cavcrosby.jenkins.base.vcs-repo=https://github.com/cavcrosby/jenkins-docker-torkel
 
 include python.mk
@@ -61,17 +61,20 @@ ${HELP}:
 >	@echo '  ${DEPLOY}       - creates a container from the project image'
 >	@echo '  ${DISMANTLE}    - removes a deployed container and the supporting'
 >	@echo '                 environment setup'
+>	@echo '  ${TEST}         - runs test suite for the project'
 >	@echo '  ${CLEAN}        - removes files generated from the configs target'
 >	@echo 'Common make configurations (e.g. make [config]=1 [targets]):'
 >	@echo '  ANSIBLE_JBC_LOG_SECRETS      - toggle logging secrets from Ansible when deploying a'
 >	@echo '                                 project image (e.g. false/true, or 0/1)'
+>	@echo '  CONTINUOUS_INTEGRATION       - toggle to possibly differentiate target behavior'
+>	@echo '                                 during ci (e.g. false/true, or 0/1)'
 
 .PHONY: ${SETUP}
 ${SETUP}: ${DOCKER_ANSIBLE_INVENTORY} ${PYENV_POETRY_SETUP}
->	${JCASCUTIL} setup
 
 .PHONY: ${CONFIGS}
 ${CONFIGS}:
+>	${JCASCUTIL} setup
 >	${JCASCUTIL} addjobs --transform-rffw --merge-casc "${CHILD_CASC_FILE}" > "${TEMP_CASC_FILE}"
 >	${JCASCUTIL} addagent-placeholder --numagents 1 --casc-path "${TEMP_CASC_FILE}" > "${CASC_FILE}"
 >	rm --force "${TEMP_CASC_FILE}"
@@ -84,6 +87,10 @@ ${DEPLOY}: ${DOCKER_TEST_DEPLOY}
 
 .PHONY: ${DISMANTLE}
 ${DISMANTLE}: ${DOCKER_TEST_DEPLOY_DISMANTLE}
+
+.PHONY: ${TEST}
+${TEST}:
+>	${PYTHON} -m unittest --verbose
 
 .PHONY: ${CLEAN}
 ${CLEAN}: ${DOCKER_IMAGE_CLEAN}
