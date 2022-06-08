@@ -41,11 +41,10 @@ ANSIBLE_SRC = $(shell find . \
 )
 
 # executables
-JCASCUTIL = jcascutil.py
+JCASCUTIL = jcascutil
 
 # simply expanded variables
 executables := \
-	${JCASCUTIL}\
 	${python_executables}\
 	${docker_executables}
 
