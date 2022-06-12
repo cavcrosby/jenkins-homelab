@@ -10,6 +10,8 @@ python = "^3.9.5"
 ansible = "5.5.0"
 docker = "^5.0.3"
 jcascutil = {git = "https://github.com/cavcrosby/jcascutil.git", rev = "main"}
+pylib-cavcrosby = {git = "https://github.com/cavcrosby/pylib.git", rev = "main"}
+cavcrosby-autotag = {git = "https://github.com/cavcrosby/autotag.git", rev = "main"}
 
 [tool.poetry.dev-dependencies]
 ansible-lint = "6.0.2"

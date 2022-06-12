@@ -92,6 +92,25 @@ optional = false
 python-versions = ">=3.6"
 
 [[package]]
+name = "cavcrosby-autotag"
+version = "1.1.0"
+description = "Framework for automating the creation of git tags"
+category = "main"
+optional = false
+python-versions = "^3.9.5"
+develop = false
+
+[package.dependencies]
+GitPython = "^3.1.27"
+pylib-cavcrosby = {git = "https://github.com/cavcrosby/pylib.git", branch = "main"}
+
+[package.source]
+type = "git"
+url = "https://github.com/cavcrosby/autotag.git"
+reference = "main"
+resolved_reference = "7f0d8dda44e221070f31ac2e7dd4881ff0643022"
+
+[[package]]
 name = "certifi"
 version = "2021.10.8"
 description = "Python package for providing Mozilla's CA Bundle."
@@ -393,7 +412,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "pylib-cavcrosby"
-version = "0.0.4"
+version = "0.0.6"
 description = "A personal library of frequently used python code"
 category = "main"
 optional = false
@@ -408,7 +427,7 @@ requests = "^2.25.1"
 type = "git"
 url = "https://github.com/cavcrosby/pylib.git"
 reference = "main"
-resolved_reference = "8b2f7685bb9d676706546a2ad1218323acae09c8"
+resolved_reference = "a7963a23ce72b02915f62a294b2150b06cdb4e77"
 
 [[package]]
 name = "pyparsing"
@@ -611,7 +630,7 @@ pyyaml = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9.5"
-content-hash = "91e05338a8af660e3f957b80506c5a05402caeea2fd15d9177c9f244bc94f571"
+content-hash = "f756852879367975ebe90786d8ae8d616f6a8c4293b93ff405a4cfd5a5a6c12b"
 
 [metadata.files]
 ansible = [
@@ -657,6 +676,7 @@ bracex = [
     {file = "bracex-2.2.1-py3-none-any.whl", hash = "sha256:096c4b788bf492f7af4e90ef8b5bcbfb99759ae3415ea1b83c9d29a5ed8f9a94"},
     {file = "bracex-2.2.1.tar.gz", hash = "sha256:1c8d1296e00ad9a91030ccb4c291f9e4dc7c054f12c707ba3c5ff3e9a81bcd21"},
 ]
+cavcrosby-autotag = []
 certifi = [
     {file = "certifi-2021.10.8-py2.py3-none-any.whl", hash = "sha256:d62a0163eb4c2344ac042ab2bdf75399a71a2d8c7d47eac2e2ee91b9d6339569"},
     {file = "certifi-2021.10.8.tar.gz", hash = "sha256:78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"},
