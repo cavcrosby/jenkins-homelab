@@ -140,3 +140,4 @@ cython_debug/
 # repo specific
 localhost
 *.yaml
+!.github/workflows/*.yaml
