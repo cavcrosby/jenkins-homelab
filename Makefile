@@ -24,7 +24,7 @@ export CONTAINER_NAME = jenkins-torkel
 export CONTAINER_NETWORK = jbc1
 export CONTAINER_VOLUME = jenkins_home:/var/jenkins_home
 export DOCKER_REPO = cavcrosby/jenkins-torkel
-DOCKER_VCS_LABEL = tech.cavcrosby.jenkins.base.vcs-repo=https://github.com/cavcrosby/jenkins-docker-torkel
+DOCKER_VCS_LABEL = tech.cavcrosby.jenkins.torkel.vcs-repo=https://github.com/cavcrosby/jenkins-docker-torkel
 
 include python.mk
 # overrides defaults set by included makefiles
