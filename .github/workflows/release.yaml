@@ -36,6 +36,7 @@ jobs:
 
       - name: Make docker image
         run: |
+          make --include-dir "${{ steps.common-mk-setup.outputs.CAVCROSBY_MAKEFILES_PATH }}" configs
           make --include-dir "${{ steps.common-mk-setup.outputs.CAVCROSBY_MAKEFILES_PATH }}" IMAGE_RELEASE_BUILD=1 DOCKER_LATEST_VERSION_TAG="${GIT_TAG}" image
 
       - name: Publish the docker image
