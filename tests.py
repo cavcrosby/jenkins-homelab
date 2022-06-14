@@ -32,12 +32,12 @@ class TestConfigsTarget(unittest.TestCase):
 
     def tearDown(self):
         """Tear down environment after running test method(s)."""
-        subprocess.run(
+        mkprocess = subprocess.run(
             ("make", "clean"),
             capture_output=True,
             encoding="utf-8",
-            check=True,
         )
+        self.assertEqual(mkprocess.returncode, 0, mkprocess.stderr)
 
     def test_configs_target(self):
         """Run the configs Makefile target."""
@@ -54,21 +54,21 @@ class TestImageTarget(unittest.TestCase):
 
     def setUp(self):
         """Set up environment before running test method(s)."""
-        subprocess.run(
+        mkprocess = subprocess.run(
             ("make", "configs"),
             capture_output=True,
             encoding="utf-8",
-            check=True,
         )
+        self.assertEqual(mkprocess.returncode, 0, mkprocess.stderr)
 
     def tearDown(self):
         """Tear down environment after running test method(s)."""
-        subprocess.run(
+        mkprocess = subprocess.run(
             ("make", "clean"),
             capture_output=True,
             encoding="utf-8",
-            check=True,
         )
+        self.assertEqual(mkprocess.returncode, 0, mkprocess.stderr)
 
     def test_image_target(self):
         """Run the image Makefile target."""
@@ -85,27 +85,28 @@ class TestImageTargetDoesImageExist(unittest.TestCase):
 
     def setUp(self):
         """Set up environment before running test method(s)."""
-        subprocess.run(
+        mkprocess = subprocess.run(
             ("make", "configs"),
             capture_output=True,
             encoding="utf-8",
-            check=True,
         )
-        subprocess.run(
+        self.assertEqual(mkprocess.returncode, 0, mkprocess.stderr)
+
+        mkprocess = subprocess.run(
             ("make", "image"),
             capture_output=True,
             encoding="utf-8",
-            check=True,
         )
+        self.assertEqual(mkprocess.returncode, 0, mkprocess.stderr)
 
     def tearDown(self):
         """Tear down environment after running test method(s)."""
-        subprocess.run(
+        mkprocess = subprocess.run(
             ("make", "clean"),
             capture_output=True,
             encoding="utf-8",
-            check=True,
         )
+        self.assertEqual(mkprocess.returncode, 0, mkprocess.stderr)
 
     def test_image_target_does_image_exist(self):
         """Check if test image exists in Docker's cache."""
@@ -129,27 +130,28 @@ class TestDeployTarget(unittest.TestCase):
 
     def setUp(self):
         """Set up environment before running test method(s)."""
-        subprocess.run(
+        mkprocess = subprocess.run(
             ("make", "configs"),
             capture_output=True,
             encoding="utf-8",
-            check=True,
         )
-        subprocess.run(
+        self.assertEqual(mkprocess.returncode, 0, mkprocess.stderr)
+
+        mkprocess = subprocess.run(
             ("make", "image"),
             capture_output=True,
             encoding="utf-8",
-            check=True,
         )
+        self.assertEqual(mkprocess.returncode, 0, mkprocess.stderr)
 
     def tearDown(self):
         """Tear down environment after running test method(s)."""
-        subprocess.run(
+        mkprocess = subprocess.run(
             ("make", "clean"),
             capture_output=True,
             encoding="utf-8",
-            check=True,
         )
+        self.assertEqual(mkprocess.returncode, 0, mkprocess.stderr)
 
     def test_deploy_target(self):
         """Run the deploy Makefile target."""
@@ -166,33 +168,35 @@ class TestDeployTargetIsContainerRunning(unittest.TestCase):
 
     def setUp(self):
         """Set up environment before running test method(s)."""
-        subprocess.run(
+        mkprocess = subprocess.run(
             ("make", "configs"),
             capture_output=True,
             encoding="utf-8",
-            check=True,
         )
-        subprocess.run(
+        self.assertEqual(mkprocess.returncode, 0, mkprocess.stderr)
+
+        mkprocess = subprocess.run(
             ("make", "image"),
             capture_output=True,
             encoding="utf-8",
-            check=True,
         )
-        subprocess.run(
+        self.assertEqual(mkprocess.returncode, 0, mkprocess.stderr)
+
+        mkprocess = subprocess.run(
             ("make", "deploy"),
             capture_output=True,
             encoding="utf-8",
-            check=True,
         )
+        self.assertEqual(mkprocess.returncode, 0, mkprocess.stderr)
 
     def tearDown(self):
         """Tear down environment after running test method(s)."""
-        subprocess.run(
+        mkprocess = subprocess.run(
             ("make", "clean"),
             capture_output=True,
             encoding="utf-8",
-            check=True,
         )
+        self.assertEqual(mkprocess.returncode, 0, mkprocess.stderr)
 
     def test_deploy_target_container_running(self):
         """Ensure test deployment is successful after running target."""
@@ -224,33 +228,35 @@ class TestDismantleTarget(unittest.TestCase):
 
     def setUp(self):
         """Set up environment before running test method(s)."""
-        subprocess.run(
+        mkprocess = subprocess.run(
             ("make", "configs"),
             capture_output=True,
             encoding="utf-8",
-            check=True,
         )
-        subprocess.run(
+        self.assertEqual(mkprocess.returncode, 0, mkprocess.stderr)
+
+        mkprocess = subprocess.run(
             ("make", "image"),
             capture_output=True,
             encoding="utf-8",
-            check=True,
         )
-        subprocess.run(
+        self.assertEqual(mkprocess.returncode, 0, mkprocess.stderr)
+
+        mkprocess = subprocess.run(
             ("make", "deploy"),
             capture_output=True,
             encoding="utf-8",
-            check=True,
         )
+        self.assertEqual(mkprocess.returncode, 0, mkprocess.stderr)
 
     def tearDown(self):
         """Tear down environment after running test method(s)."""
-        subprocess.run(
+        mkprocess = subprocess.run(
             ("make", "clean"),
             capture_output=True,
             encoding="utf-8",
-            check=True,
         )
+        self.assertEqual(mkprocess.returncode, 0, mkprocess.stderr)
 
     def test_dismantle(self):
         """Run the dismantle Makefile target."""
@@ -267,18 +273,19 @@ class TestCleanTarget(unittest.TestCase):
 
     def setUp(self):
         """Set up environment before running test method(s)."""
-        subprocess.run(
+        mkprocess = subprocess.run(
             ("make", "configs"),
             capture_output=True,
             encoding="utf-8",
-            check=True,
         )
-        subprocess.run(
+        self.assertEqual(mkprocess.returncode, 0, mkprocess.stderr)
+
+        mkprocess = subprocess.run(
             ("make", "image"),
             capture_output=True,
             encoding="utf-8",
-            check=True,
         )
+        self.assertEqual(mkprocess.returncode, 0, mkprocess.stderr)
 
     def test_clean(self):
         """Run the clean Makefile target."""
@@ -295,12 +302,12 @@ class TestCleanTargetDoesImageNotExist(unittest.TestCase):
 
     def setUp(self):
         """Set up environment before running test method(s)."""
-        subprocess.run(
+        mkprocess = subprocess.run(
             ("make", "clean"),
             capture_output=True,
             encoding="utf-8",
-            check=True,
         )
+        self.assertEqual(mkprocess.returncode, 0, mkprocess.stderr)
 
     def test_clean_target_does_image_not_exist(self):
         """Check if test image does not exist."""
