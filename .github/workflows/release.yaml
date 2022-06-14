@@ -36,6 +36,13 @@ jobs:
 
       - name: Make docker image
         run: |
+          # DISCUSS(cavcrosby): it appears the jcascutil shim does not exist in the
+          # ${PYENV_ROOT}/shims path after 'make setup' unless the next line has ran.
+          # I need to figure out what part of the 'pyenv init -' output allows the shim to
+          # be created and see if this is something that the pyenv-setup composite action
+          # can take care of.
+          eval "$(pyenv init -)"
+
           make --include-dir "${{ steps.common-mk-setup.outputs.CAVCROSBY_MAKEFILES_PATH }}" configs
           make --include-dir "${{ steps.common-mk-setup.outputs.CAVCROSBY_MAKEFILES_PATH }}" IMAGE_RELEASE_BUILD=1 DOCKER_LATEST_VERSION_TAG="${GIT_TAG}" image
 
