@@ -40,13 +40,19 @@ ANSIBLE_SRC = $(shell find . \
 	-and ! \( -path '*.git*' \) \
 )
 
+include yamllint.mk
+YAML_SRC = \
+	./.github/workflows\
+	./child-casc.yaml
+
 # executables
 JCASCUTIL = jcascutil
 
 # simply expanded variables
 executables := \
 	${python_executables}\
-	${docker_executables}
+	${docker_executables}\
+	${yamllint_executables}
 
 _check_executables := $(foreach exec,${executables},$(if $(shell command -v ${exec}),pass,$(error "No ${exec} in PATH")))
 
@@ -61,6 +67,7 @@ ${HELP}:
 >	@echo '  ${DEPLOY}       - creates a container from the project image'
 >	@echo '  ${DISMANTLE}    - removes a deployed container and the supporting'
 >	@echo '                 environment setup'
+>	@echo '  ${LINT}         - performs linting on the yaml configuration files'
 >	@echo '  ${PUBLISH}      - publish docker image to the project image repository'
 >	@echo '  ${TEST}         - runs test suite for the project'
 >	@echo '  ${CLEAN}        - removes files generated from the configs target'
@@ -89,6 +96,9 @@ ${DEPLOY}: ${DOCKER_TEST_DEPLOY}
 
 .PHONY: ${DISMANTLE}
 ${DISMANTLE}: ${DOCKER_TEST_DEPLOY_DISMANTLE}
+
+.PHONY: ${LINT}
+${LINT}: ${ANSIBLE_LINT} ${YAMLLINT}
 
 .PHONY: ${PUBLISH}
 ${PUBLISH}: ${DOCKER_PUBLISH}
