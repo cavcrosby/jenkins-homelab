@@ -33,7 +33,7 @@
         },
         {
             "matchManagers": ["dockerfile"],
-            "matchUpdateTypes": ["digest"],
+            "matchUpdateTypes": ["minor", "patch"],
             "automerge": true,
             "automergeType": "branch",
             "rebaseWhen": "behind-base-branch"
