@@ -7,7 +7,7 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.9.5"
-ansible = "5.9.0"
+ansible = "6.0.0"
 docker = "^5.0.3"
 jcascutil = {git = "https://github.com/cavcrosby/jcascutil.git", rev = "main"}
 pylib-cavcrosby = {git = "https://github.com/cavcrosby/pylib.git", rev = "main"}
