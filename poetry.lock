@@ -195,7 +195,7 @@ optional = false
 python-versions = "*"
 
 [package.extras]
-test = ["flake8 (==3.7.8)", "hypothesis (==3.55.3)"]
+test = ["hypothesis (==3.55.3)", "flake8 (==3.7.8)"]
 
 [[package]]
 name = "cryptography"
@@ -651,7 +651,7 @@ optional = false
 python-versions = ">=3.6"
 
 [package.extras]
-test = ["enrich (>=1.2.6)", "mock (>=4.0.3)", "molecule (>=3.4.0)", "pytest-cov (>=2.12.1)", "pytest-plus (>=0.2)", "pytest-xdist (>=2.3.0)", "pytest (>=6.2.5)"]
+test = ["pytest (>=6.2.5)", "pytest-xdist (>=2.3.0)", "pytest-plus (>=0.2)", "pytest-cov (>=2.12.1)", "molecule (>=3.4.0)", "mock (>=4.0.3)", "enrich (>=1.2.6)"]
 
 [[package]]
 name = "toml"
