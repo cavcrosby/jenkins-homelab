@@ -5,7 +5,7 @@
     "prConcurrentLimit": 4,
     "timezone": "utc",
     "schedule": [
-        "after 5:00 am before 7:00 am"
+        "after 5:00 am before 11:00 am"
     ],
     "lockFileMaintenance": {
         "enabled": true,
@@ -13,7 +13,7 @@
         "automergeType": "branch",
         "rebaseWhen": "behind-base-branch",
         "schedule": [
-            "after 5:00 am before 7:00 am"
+            "after 5:00 am before 11:00 am"
         ]
     },
     "packageRules": [
@@ -33,7 +33,14 @@
         },
         {
             "matchManagers": ["dockerfile"],
-            "matchUpdateTypes": ["minor", "patch"],
+            "matchUpdateTypes": ["digest"],
+            "automerge": true,
+            "automergeType": "branch",
+            "rebaseWhen": "behind-base-branch"
+        },
+        {
+            "matchManagers": ["jenkins"],
+            "matchUpdateTypes": ["major", "minor", "patch"],
             "automerge": true,
             "automergeType": "branch",
             "rebaseWhen": "behind-base-branch"

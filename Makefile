@@ -1,13 +1,6 @@
 include base.mk
 
 # recursively expanded variables
-CASC_FILE = casc.yaml
-CHILD_CASC_FILE = child-casc.yaml
-TEMP_CASC_FILE = temp-casc.yaml
-
-# targets
-CONFIGS = configs
-
 define ANSIBLE_INVENTORY =
 cat << _EOF_
 all:
@@ -21,10 +14,10 @@ export ANSIBLE_INVENTORY
 # include other generic makefiles
 include docker.mk
 export CONTAINER_NAME = jenkins-torkel
-export CONTAINER_NETWORK = jbc1
+export CONTAINER_NETWORK = jc1
 export CONTAINER_VOLUME = jenkins_home:/var/jenkins_home
 export DOCKER_REPO = cavcrosby/jenkins-torkel
-DOCKER_VCS_LABEL = tech.cavcrosby.jenkins.torkel.vcs-repo=https://github.com/cavcrosby/jenkins-docker-torkel
+DOCKER_VCS_LABEL = tech.cavcrosby.jenkins.torkel.vcs-repo=https://github.com/cavcrosby/jenkins-torkel
 
 include python.mk
 # overrides defaults set by included makefiles
@@ -36,6 +29,7 @@ ANSIBLE_SRC = $(shell find . \
 		\( -type f \) \
 		-and \( -name '*.yml' \) \
 	\) \
+	-and ! \( -iwholename './.config/ansible-lint.yml' \) \
 	-and ! \( -name '.python-version' \) \
 	-and ! \( -path '*.git*' \) \
 )
@@ -43,26 +37,22 @@ ANSIBLE_SRC = $(shell find . \
 include yamllint.mk
 YAML_SRC = \
 	./.github/workflows\
-	./child-casc.yaml
-
-# executables
-JCASCUTIL = jcascutil
+	./casc.yaml\
+	./.config/ansible-lint.yml
 
 # simply expanded variables
 executables := \
 	${python_executables}\
-	${docker_executables}\
-	${yamllint_executables}
+	${docker_executables}
 
 _check_executables := $(foreach exec,${executables},$(if $(shell command -v ${exec}),pass,$(error "No ${exec} in PATH")))
 
 .PHONY: ${HELP}
 ${HELP}:
 	# inspired by the makefiles of the Linux kernel and Mercurial
->	@echo 'Available make targets:'
+>	@echo 'Common make targets:'
 >	@echo '  ${SETUP}        - installs the distro-independent dependencies for this'
 >	@echo '                 project and runs the needed jcascutil setup'
->	@echo '  ${CONFIGS}      - creates/pulls the needed material to perform a docker build'
 >	@echo '  ${IMAGE}        - creates the base docker image that host Jenkins'
 >	@echo '  ${DEPLOY}       - creates a container from the project image'
 >	@echo '  ${DISMANTLE}    - removes a deployed container and the supporting'
@@ -80,13 +70,6 @@ ${HELP}:
 .PHONY: ${SETUP}
 ${SETUP}: ${DOCKER_ANSIBLE_INVENTORY} ${PYENV_POETRY_SETUP}
 >	${ANSIBLE_GALAXY} collection install --requirements-file ./requirements.yml
-
-.PHONY: ${CONFIGS}
-${CONFIGS}:
->	${JCASCUTIL} setup
->	${JCASCUTIL} addjobs --transform-rffw --merge-casc "${CHILD_CASC_FILE}" > "${TEMP_CASC_FILE}"
->	${JCASCUTIL} addagent-placeholder --numagents 1 --casc-path "${TEMP_CASC_FILE}" > "${CASC_FILE}"
->	rm --force "${TEMP_CASC_FILE}"
 
 .PHONY: ${IMAGE}
 ${IMAGE}: ${DOCKER_IMAGE}
@@ -109,5 +92,3 @@ ${TEST}:
 
 .PHONY: ${CLEAN}
 ${CLEAN}: ${DOCKER_IMAGE_CLEAN}
->	rm --force "${CASC_FILE}"
->	${JCASCUTIL} setup --clean

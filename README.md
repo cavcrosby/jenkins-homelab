@@ -1,6 +1,6 @@
-# jenkins-docker-torkel
+# jenkins-torkel
 
-For reference, see the project site [jenkins-containers](https://cavcrosby.github.io/jenkins-containers/).
+Jenkins instance that serves CI/CD for the majority of my source code repositories.
 
 ## License
 

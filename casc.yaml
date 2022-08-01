@@ -1,0 +1,66 @@
+---
+jenkins:
+  # yamllint disable rule:line-length
+  systemMessage: >
+    This Jenkins instance was configured using Jenkins Configuration as Code (JCasC)! Current container registry: https://hub.docker.com/u/cavcrosby
+  # yamllint enable
+  # jenkins complains if its not accessed through a reverse proxy for reference:
+  # https://www.jenkins.io/doc/book/system-administration/reverse-proxy-configuration-troubleshooting/
+  disabledAdministrativeMonitors:
+    - hudson.diagnosis.ReverseProxySetupMonitor
+  # Setting this property now makes the Jenkins controller more strict about
+  # what commands its agents can send to it, the controller.
+  remotingSecurity:
+    enabled: true
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: ${JENKINS_ADMIN_ID}
+          name: ${JENKINS_ADMIN_FULLNAME}
+          password: ${JENKINS_ADMIN_PASSWORD}
+          properties:
+        - mailer:
+            emailAddress: ${JENKINS_ADMIN_EMAIL}
+        - timezone:
+            timeZoneName: America/New_York
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+  numExecutors: 0
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - usernamePassword:
+            id: ${JENKINS_GITHUB_CREDENTIAL_ID}
+            username: ${JENKINS_GITHUB_CREDENTIAL_USERNAME}
+            password: ${JENKINS_GITHUB_CREDENTIAL_SECRET}
+            scope: GLOBAL
+security:
+  scriptApproval:
+    approvedSignatures:
+      - staticMethod java.lang.System getenv java.lang.String
+unclassified:
+  email-ext:
+    mailAccount:
+      smtpHost: ${SMTP_SERVER_ADDR}
+      smtpPassword: ${JENKINS_ADMIN_EMAIL_SECRET}
+      smtpPort: 587
+      smtpUsername: ${JENKINS_ADMIN_EMAIL}
+      useTls: true
+  location:
+    url: http://${JENKINS_URL}/
+  mailer:
+    authentication:
+      password: ${JENKINS_ADMIN_EMAIL_SECRET}
+      username: ${JENKINS_ADMIN_EMAIL}
+    charset: UTF-8
+    smtpHost: ${SMTP_SERVER_ADDR}
+    smtpPort: 587
+    useSsl: false
+    useTls: true
+  shell:
+    shell: /bin/bash
+jobs:
+  - url: https://raw.githubusercontent.com/cavcrosby/general-purpose-scripts/main/.jenkins/job-dsl.groovy  # yamllint disable-line rule:line-length

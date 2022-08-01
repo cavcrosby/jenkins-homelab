@@ -11,9 +11,10 @@ import sys
 
 # Third Party Imports
 import autotag
+import docker
 from pylib.argparse import CustomHelpFormatter
 from pylib.versions import (
-    SemanticVersion,
+    JenkinsVersion,
     VersionUpdateTypes,
 )
 
@@ -30,12 +31,11 @@ _arg_parser = argparse.ArgumentParser(
 )
 
 _DOCKERFILE = "Dockerfile"
-_JENKINS_DOCKER_BASE_IMAGE = "cavcrosby/jenkins-base"
-PRIOR_JENKINS_DOCKER_BASE_IMAGE_VERSION = (
-    rf"(?<=-FROM ){_JENKINS_DOCKER_BASE_IMAGE}:v(.+)"  # noqa: E501,W503
-)
-CURRENT_JENKINS_DOCKER_BASE_IMAGE_VERSION = (
-    rf"(?<=\+FROM ){_JENKINS_DOCKER_BASE_IMAGE}:v(.+)"  # noqa: E501,W503
+_JENKINS_DOCKER_IMAGE = "jenkins/jenkins:lts"
+_JENKINS_VERSION_ENV_VAR_NAME = "JENKINS_VERSION"
+PRIOR_JENKINS_DOCKER_IMAGE = rf"(?<=-FROM ){_JENKINS_DOCKER_IMAGE}@sha256:\w+"
+CURRENT_JENKINS_DOCKER_IMAGE = (
+    rf"(?<=\+FROM ){_JENKINS_DOCKER_IMAGE}@sha256:\w+"
 )
 
 logging.config.dictConfig(
@@ -44,7 +44,7 @@ logging.config.dictConfig(
         "disable_existing_loggers": False,
         "formatters": {
             "console": {
-                "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"  # noqa: E501,W503
+                "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"  # noqa: E501
             },
         },
         "handlers": {
@@ -100,6 +100,14 @@ def update_policy(patch, repo_working_dir):
     """
     repo_update_types = list()
     for chd_object in patch:
+        if chd_object.a_path is None or chd_object.b_path is None:
+            # This is to occur if either a new file is part of the patch or if
+            # a file has been deleted. Because I cannot anticipate all new or
+            # removed files, I will skip determining the update types for
+            # additions and deletions. For reference:
+            # https://gitpython.readthedocs.io/en/stable/reference.html?highlight=diff#git.diff.Diff
+            continue
+
         chd_file_path = pathlib.PurePath(repo_working_dir).joinpath(
             chd_object.b_path
         )
@@ -107,56 +115,57 @@ def update_policy(patch, repo_working_dir):
 
         if chd_file_path == pathlib.PurePath(repo_working_dir).joinpath(
             _DOCKERFILE
-        ) and re.findall(PRIOR_JENKINS_DOCKER_BASE_IMAGE_VERSION, patch_text):
+        ) and re.findall(PRIOR_JENKINS_DOCKER_IMAGE, patch_text):
+            _logger.info(f"detected base image digest change in {_DOCKERFILE}")
+            prior_jenkins_img = re.findall(
+                PRIOR_JENKINS_DOCKER_IMAGE, patch_text
+            )[0]
+            current_jenkins_img = re.findall(
+                CURRENT_JENKINS_DOCKER_IMAGE, patch_text
+            )[0]
+            _logger.info(f"prior Jenkins Docker image: {prior_jenkins_img}")
             _logger.info(
-                f"detected {_JENKINS_DOCKER_BASE_IMAGE} image version change "
-                f"in {_DOCKERFILE}"
+                f"current Jenkins Docker image: {current_jenkins_img}"
             )
 
-            prior_base_img_version = SemanticVersion(
-                re.findall(
-                    PRIOR_JENKINS_DOCKER_BASE_IMAGE_VERSION, patch_text
-                )[0]
+            docker_client = docker.from_env()
+            prior_jenkins_version = JenkinsVersion.from_docker_image(
+                docker_client, prior_jenkins_img
             )
-            current_base_img_version = SemanticVersion(
-                re.findall(
-                    CURRENT_JENKINS_DOCKER_BASE_IMAGE_VERSION, patch_text
-                )[0]
+            current_jenkins_version = JenkinsVersion.from_docker_image(
+                docker_client, current_jenkins_img
             )
-            _logger.info(
-                f"prior image: {_JENKINS_DOCKER_BASE_IMAGE}:"
-                f"{prior_base_img_version}"
-            )
-            _logger.info(
-                f"current image: {_JENKINS_DOCKER_BASE_IMAGE}:"
-                f"{current_base_img_version}"
-            )
+            _logger.info(f"prior Jenkins version: {prior_jenkins_version}")
+            _logger.info(f"current Jenkins version: {current_jenkins_version}")
 
-            base_img_update_types = (
-                prior_base_img_version.determine_update_types(
-                    current_base_img_version
+            types_of_jenkins_update = (
+                prior_jenkins_version.determine_update_types(
+                    current_jenkins_version
                 )
             )
             _logger.info(
-                f"detected {_JENKINS_DOCKER_BASE_IMAGE} update types "
-                f"between versions: {base_img_update_types}"
+                "detected jenkins version updates between "
+                f"Jenkins versions: {types_of_jenkins_update}"
             )
 
-            greatest_base_img_update_type = (
-                SemanticVersion.determine_greatest_update_type(
-                    base_img_update_types
+            # In the event that the Jenkins maintainers decided to increment
+            # multiple parts of the jenkins versioning. I only want to denote
+            # the greatest part that has changed.
+            greatest_jenkins_update_type = (
+                JenkinsVersion.determine_greatest_update_type(
+                    types_of_jenkins_update
                 )
             )
 
-            if greatest_base_img_update_type == VersionUpdateTypes.PATCH:
+            if greatest_jenkins_update_type == VersionUpdateTypes.PATCH:
                 repo_update_types.append(VersionUpdateTypes.PATCH)
-            elif greatest_base_img_update_type == VersionUpdateTypes.MINOR:
+            elif greatest_jenkins_update_type == VersionUpdateTypes.MINOR:
                 repo_update_types.append(VersionUpdateTypes.MINOR)
-            elif greatest_base_img_update_type == VersionUpdateTypes.MAJOR:
+            elif greatest_jenkins_update_type == VersionUpdateTypes.MAJOR:
                 raise SystemExit(
                     "\n\n"
-                    + f"WARNING: The current {_JENKINS_DOCKER_BASE_IMAGE} image has had a major version update.\n"  # noqa: E501,W503
-                    + f"({_JENKINS_DOCKER_BASE_IMAGE}:{prior_base_img_version} -> {_JENKINS_DOCKER_BASE_IMAGE}:{current_base_img_version})\n"  # noqa: E501,W503
+                    + "WARNING: The current Jenkins image has had a major jenkins version update.\n"  # noqa: E501,W503
+                    + f"({prior_jenkins_version} -> {current_jenkins_version})\n"  # noqa: E501,W503
                     + "Manual tagging will need to occur for this kind of update.\n"  # noqa: E501,W503
                 )
         elif chd_file_path == pathlib.PurePath(repo_working_dir).joinpath(
@@ -165,15 +174,14 @@ def update_policy(patch, repo_working_dir):
             _logger.info(f"detected general {_DOCKERFILE} changes")
             repo_update_types.append(VersionUpdateTypes.MINOR)
         elif chd_file_path == pathlib.PurePath(repo_working_dir).joinpath(
-            "child-casc.yaml"
+            "casc.yaml"
         ):
-            _logger.info("detected child-casc file changes")
+            _logger.info("detected casc file changes")
             repo_update_types.append(VersionUpdateTypes.MINOR)
         elif chd_file_path == pathlib.PurePath(repo_working_dir).joinpath(
-            "jobs.toml"
+            "plugins.txt"
         ):
-            _logger.info("detected jcascutil's Jenkins jobs file changes")
-            repo_update_types.append(VersionUpdateTypes.MINOR)
+            repo_update_types.append(VersionUpdateTypes.RESEAT)
 
     return repo_update_types
 
