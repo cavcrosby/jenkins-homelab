@@ -11,14 +11,14 @@ ansible-core = ">=2.13.1,<2.14.0"
 
 [[package]]
 name = "ansible-compat"
-version = "2.1.0"
+version = "2.2.0"
 description = "Ansible compatibility goodies"
 category = "dev"
 optional = false
 python-versions = ">=3.8"
 
 [package.dependencies]
-jsonschema = ">=4.5.1"
+jsonschema = ">=4.6.0"
 PyYAML = "*"
 subprocess-tee = ">=0.3.5"
 
@@ -43,17 +43,17 @@ resolvelib = ">=0.5.3,<0.9.0"
 
 [[package]]
 name = "ansible-lint"
-version = "6.3.0"
+version = "6.4.0"
 description = "Checks playbooks for practices and behavior that could potentially be improved"
 category = "dev"
 optional = false
 python-versions = ">=3.8"
 
 [package.dependencies]
-ansible-compat = ">=2.1.0"
+ansible-compat = ">=2.2.0"
 ansible-core = ">=2.12.0"
 enrich = ">=1.2.6"
-jsonschema = ">=4.6.0"
+jsonschema = ">=4.8.0"
 packaging = "*"
 pytest = "*"
 pyyaml = "*"
@@ -326,7 +326,7 @@ i18n = ["Babel (>=2.7)"]
 
 [[package]]
 name = "jsonschema"
-version = "4.6.0"
+version = "4.9.0"
 description = "An implementation of JSON Schema validation for Python"
 category = "dev"
 optional = false
@@ -701,7 +701,7 @@ pyyaml = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9.5"
-content-hash = "c035d38b3ccbb2675f3a2531a07dadd9c228269553d5d7572c9dabcee1ca5ba4"
+content-hash = "7bc654121ca98b03223013e81a57c3379e81f360d807a89f529545a1ff83dbad"
 
 [metadata.files]
 ansible = [
@@ -709,16 +709,16 @@ ansible = [
     {file = "ansible-6.1.0.tar.gz", hash = "sha256:91e4b23945f190aaa123c6ba4f8accb8e7f8905991bd3bb19b89afbdca456822"},
 ]
 ansible-compat = [
-    {file = "ansible-compat-2.1.0.tar.gz", hash = "sha256:62bae1bb5c20663d5ee1bfec04f073c08be721040af9ef5bddc7904e6678d184"},
-    {file = "ansible_compat-2.1.0-py3-none-any.whl", hash = "sha256:4ef7350fa1e768719a6df0239474bab5733c8910627ed6e3ec1be5381d710d17"},
+    {file = "ansible-compat-2.2.0.tar.gz", hash = "sha256:676db8ec0449d1f07038625b8ebb8ceef5f8ad3a1af3ee82d4ed66b9b04cb6fa"},
+    {file = "ansible_compat-2.2.0-py3-none-any.whl", hash = "sha256:ce69a67785ae96e8962794a47494339991a0ae242ab5dd14a76ee2137d09072e"},
 ]
 ansible-core = [
     {file = "ansible-core-2.13.1.tar.gz", hash = "sha256:abd478ceff1a0aba95e94ceab8dc820f407bcc0f0033dc546840cddc29a36958"},
     {file = "ansible_core-2.13.1-py3-none-any.whl", hash = "sha256:45d55e052bcea487366b0893b22f247e913a1f0948197658b7f3532a37ab6841"},
 ]
 ansible-lint = [
-    {file = "ansible-lint-6.3.0.tar.gz", hash = "sha256:f57f520ae5d810ce062157dc7d633990ad2fbec81bbbb34ccc4ce3a0c21fcd38"},
-    {file = "ansible_lint-6.3.0-py3-none-any.whl", hash = "sha256:144b61a43fb9bad9fb19529105a98c87b8b84c99519290209dc624231f5b70ca"},
+    {file = "ansible-lint-6.4.0.tar.gz", hash = "sha256:c5a76306cae906a260cf7286ca87c4d03ba4492b2ed7bfea21ad11fdf3c7e8d1"},
+    {file = "ansible_lint-6.4.0-py3-none-any.whl", hash = "sha256:bea12b88a69c1f9a6746ec0532aa72d6e7ca44918eea9a8110bc321b208f49e7"},
 ]
 atomicwrites = [
     {file = "atomicwrites-1.4.0-py2.py3-none-any.whl", hash = "sha256:6d1784dea7c0c8d4a5172b6c620f40b6e4cbfdf96d783691f2e1302a7b88e197"},
@@ -891,8 +891,8 @@ jinja2 = [
     {file = "Jinja2-3.1.2.tar.gz", hash = "sha256:31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"},
 ]
 jsonschema = [
-    {file = "jsonschema-4.6.0-py3-none-any.whl", hash = "sha256:1c92d2db1900b668201f1797887d66453ab1fbfea51df8e4b46236689c427baf"},
-    {file = "jsonschema-4.6.0.tar.gz", hash = "sha256:9d6397ba4a6c0bf0300736057f649e3e12ecbc07d3e81a0dacb72de4e9801957"},
+    {file = "jsonschema-4.9.0-py3-none-any.whl", hash = "sha256:5d0be0cd1b670438b71c3d3145b2abba1f9d197e3e91adc4c4bae4c0e114e252"},
+    {file = "jsonschema-4.9.0.tar.gz", hash = "sha256:df10e65c8f3687a48e93d0d348ce0ce5f897b5a28e9bbcbbe8f7c7eaf019e850"},
 ]
 markupsafe = [
     {file = "MarkupSafe-2.1.1-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:86b1f75c4e7c2ac2ccdaec2b9022845dbb81880ca318bb7a0a01fbf7813e3812"},

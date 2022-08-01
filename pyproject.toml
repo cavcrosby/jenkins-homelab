@@ -13,7 +13,7 @@ pylib-cavcrosby = {git = "https://github.com/cavcrosby/pylib.git", rev = "main"}
 cavcrosby-autotag = {git = "https://github.com/cavcrosby/autotag.git", rev = "main"}
 
 [tool.poetry.dev-dependencies]
-ansible-lint = "6.3.0"
+ansible-lint = "6.4.0"
 flake8 = "^4.0.1"
 black = "^22.3.0"
 flake8-docstrings = "^1.6.0"
