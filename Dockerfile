@@ -14,7 +14,7 @@ ENV JAVA_OPTS "-Djenkins.install.runSetupWizard=false -Dmail.smtp.starttls.enabl
 # CASC_JENKINS_CONFIG is already picked up by the plugin, do not change to
 # 'CASC_JENKINS_CONFIG_PATH'. Also, JENKINS_HOME is already defined by parent
 # image.
-ENV CASC_JENKINS_CONFIG "${JENKINS_HOME}/${CASC_JENKINS_CONFIG_FILE}"
+ENV CASC_JENKINS_CONFIG "/usr/share/jenkins/ref/${CASC_JENKINS_CONFIG_FILE}"
 ENV PLUGINS_FILE_PATH "/usr/share/jenkins/ref/${PLUGINS_FILE}"
 
 COPY "${CASC_JENKINS_CONFIG_FILE}" "${CASC_JENKINS_CONFIG}"
