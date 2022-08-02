@@ -20,10 +20,10 @@ jenkins:
           name: ${JENKINS_ADMIN_FULLNAME}
           password: ${JENKINS_ADMIN_PASSWORD}
           properties:
-        - mailer:
-            emailAddress: ${JENKINS_ADMIN_EMAIL}
-        - timezone:
-            timeZoneName: America/New_York
+            - mailer:
+                emailAddress: ${JENKINS_ADMIN_EMAIL}
+            - timezone:
+                timeZoneName: America/New_York
   authorizationStrategy:
     loggedInUsersCanDoAnything:
       allowAnonymousRead: false
@@ -33,10 +33,10 @@ credentials:
     domainCredentials:
       - credentials:
           - usernamePassword:
-            id: ${JENKINS_GITHUB_CREDENTIAL_ID}
-            username: ${JENKINS_GITHUB_CREDENTIAL_USERNAME}
-            password: ${JENKINS_GITHUB_CREDENTIAL_SECRET}
-            scope: GLOBAL
+              id: ${JENKINS_GITHUB_CREDENTIAL_ID}
+              username: ${JENKINS_GITHUB_CREDENTIAL_USERNAME}
+              password: ${JENKINS_GITHUB_CREDENTIAL_SECRET}
+              scope: GLOBAL
 security:
   scriptApproval:
     approvedSignatures:
