@@ -27,6 +27,12 @@ jenkins:
   authorizationStrategy:
     loggedInUsersCanDoAnything:
       allowAnonymousRead: false
+  clouds:
+    - kubernetes:
+        containerCap: 10
+        containerCapStr: "10"
+        name: kubernetes
+        namespace: jenkins-torkel
   numExecutors: 0
 credentials:
   system:
