@@ -33,6 +33,9 @@ jenkins:
         containerCapStr: "10"
         name: kubernetes
         namespace: jenkins-torkel
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: true
   numExecutors: 0
 credentials:
   system:
