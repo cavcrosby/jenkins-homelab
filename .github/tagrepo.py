@@ -31,7 +31,7 @@ _arg_parser = argparse.ArgumentParser(
 )
 
 _DOCKERFILE = "Dockerfile"
-_JENKINS_DOCKER_IMAGE = "jenkins/jenkins:lts"
+_JENKINS_DOCKER_IMAGE = "jenkins/jenkins:jdk11"
 _JENKINS_VERSION_ENV_VAR_NAME = "JENKINS_VERSION"
 PRIOR_JENKINS_DOCKER_IMAGE = rf"(?<=-FROM ){_JENKINS_DOCKER_IMAGE}@sha256:\w+"
 CURRENT_JENKINS_DOCKER_IMAGE = (
