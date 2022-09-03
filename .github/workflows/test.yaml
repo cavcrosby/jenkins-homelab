@@ -32,4 +32,4 @@ jobs:
       # https://github.com/docker/cli/pull/3547
       # yamllint enable
       - name: Run tests
-        run: make --include-dir "${{ steps.common-mk-setup.outputs.CAVCROSBY_MAKEFILES_PATH }}" SKIP_DOCKER_NETWORK=1 CONTINUOUS_INTEGRATION=1 test  # yamllint disable-line rule:line-length
+        run: make --include-dir "${{ steps.common-mk-setup.outputs.CAVCROSBY_MAKEFILES_PATH }}" SKIP_DOCKER_NETWORK="true" CONTINUOUS_INTEGRATION="true" test  # yamllint disable-line rule:line-length
