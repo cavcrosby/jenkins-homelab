@@ -2,6 +2,8 @@
 name: Release
 
 on:  # yamllint disable-line rule:truthy
+  schedule:
+    - cron: "5 11 * * 0"
   push:
     branches:
       - "!*"
@@ -13,6 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
       - uses: cavcrosby/pyenv-setup@v1.0.0
 
       - id: common-mk-setup
@@ -25,7 +30,8 @@ jobs:
           password: ${{ secrets.DOCKERHUB_SECRET }}
 
       - name: Git the tag
-        run: echo "GIT_TAG=${GITHUB_REF#refs/tags/}" >> ${GITHUB_ENV}
+        run: |
+          echo "GIT_TAG=\"$(git describe --tags --abbrev=0)\"" >> ${GITHUB_ENV}
 
       - name: Install the managed Python version
         run: pyenv install "$(make --include-dir "${{ steps.common-mk-setup.outputs.CAVCROSBY_MAKEFILES_PATH }}" get-virtualenv-python-version)"  # yamllint disable-line rule:line-length
