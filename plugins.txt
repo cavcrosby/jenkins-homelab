@@ -5,7 +5,7 @@ bootstrap4-api:4.6.0-5
 bootstrap5-api:5.2.0-3
 bouncycastle-api:2.26
 branch-api:2.1046.v0ca_37783ecc5
-build-timeout:1.21
+build-timeout:1.24
 caffeine-api:2.9.3-65.v6a_47d0f4d1fe
 checks-api:1.7.5
 cloudbees-folder:6.758.vfd75d09eea_a_1
