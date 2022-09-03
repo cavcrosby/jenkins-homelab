@@ -6,7 +6,7 @@
     ansible_python_interpreter: "{{ lookup('env', 'PYENV_ROOT') }}/versions/{{ lookup('env', 'PYTHON_VIRTUALENV_NAME') }}/bin/python"
 
   roles:
-    - role: cavcrosby.general.jenkins_base_containers
+    - role: cavcrosby.general.jenkins_containers
       vars:
         image_to_deploy: torkel
         image_tag: "{{ lookup('env', 'DOCKER_CONTEXT_TAG') }}"
