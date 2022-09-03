@@ -2,5 +2,5 @@
 # for reference on this file format:
 # https://ansible-lint.readthedocs.io/en/latest/configuring/#configuration-file
 exclude_paths:
-  - ../casc.yaml
-  - ../.github/
+  - ./casc.yaml
+  - ./.github/

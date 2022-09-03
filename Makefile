@@ -29,7 +29,6 @@ ANSIBLE_SRC = $(shell find . \
 		\( -type f \) \
 		-and \( -name '*.yml' \) \
 	\) \
-	-and ! \( -iwholename './.config/ansible-lint.yml' \) \
 	-and ! \( -name '.python-version' \) \
 	-and ! \( -path '*.git*' \) \
 )
@@ -38,7 +37,7 @@ include yamllint.mk
 YAML_SRC = \
 	./.github/workflows\
 	./casc.yaml\
-	./.config/ansible-lint.yml
+	./.ansible-lint
 
 # simply expanded variables
 executables := \
