@@ -38,7 +38,7 @@
             "automergeType": "branch",
             "rebaseWhen": "behind-base-branch",
             "schedule": [
-                "after 5:00 am on Tuesday every 2 weeks starting on the 1st week of the year"
+                "after 3:00 am before 5:00 am on Tuesday every 2 weeks starting on the 1st week of the year"
             ]
         },
         {
