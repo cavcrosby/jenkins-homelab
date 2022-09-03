@@ -1,15 +1,16 @@
 ---
 jenkins:
   # yamllint disable rule:line-length
-  systemMessage: >
+  systemMessage: |
     This Jenkins instance was configured using Jenkins Configuration as Code (JCasC)! Current container registry: https://hub.docker.com/u/cavcrosby
-  # yamllint enable
-  # jenkins complains if its not accessed through a reverse proxy for reference:
+
+  # By default, Jenkins assumes it will be accessed via reverse proxy and attempts
+  # to validate the proxy connection from a client to Jenkins. For now I just wish
+  # to shut off this feature. For reference on the error that lead me to use config:
   # https://www.jenkins.io/doc/book/system-administration/reverse-proxy-configuration-troubleshooting/
+  # yamllint enable
   disabledAdministrativeMonitors:
     - hudson.diagnosis.ReverseProxySetupMonitor
-  # Setting this property now makes the Jenkins controller more strict about
-  # what commands its agents can send to it, the controller.
   remotingSecurity:
     enabled: true
   securityRealm:
