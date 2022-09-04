@@ -9,8 +9,6 @@ license = "MIT"
 python = "^3.9.5"
 ansible = "6.3.0"
 docker = "^6.0.0"
-pylib-cavcrosby = {git = "https://github.com/cavcrosby/pylib.git", rev = "main"}
-cavcrosby-autotag = {git = "https://github.com/cavcrosby/autotag.git", rev = "main"}
 
 [tool.poetry.dev-dependencies]
 ansible-lint = "6.5.2"
