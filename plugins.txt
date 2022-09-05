@@ -76,7 +76,7 @@ trilead-api:1.67.vc3938a_35172f
 uno-choice:2.6.4
 variant:59.vf075fe829ccb
 workflow-aggregator:590.v6a_d052e5a_a_b_5
-workflow-api:1188.v0016b_4f29881
+workflow-api:1192.v2d0deb_19d212
 workflow-basic-steps:969.vc4ec3e4854b_f
 workflow-cps:2746.v0da_83a_332669
 workflow-durable-task-step:1174.v73a_9a_17edce0
