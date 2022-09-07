@@ -72,7 +72,7 @@ ssh-slaves:1.834.v622da_57f702c
 structs:324.va_f5d6774f3a_d
 timestamper:1.19
 token-macro:308.v4f2b_ed62b_b_16
-trilead-api:1.67.vc3938a_35172f
+trilead-api:2.72.v2a_3236754f73
 uno-choice:2.6.4
 variant:59.vf075fe829ccb
 workflow-aggregator:590.v6a_d052e5a_a_b_5
