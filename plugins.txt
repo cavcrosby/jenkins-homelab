@@ -70,7 +70,7 @@ ssh-credentials:305.v8f4381501156
 sshd:3.249.v2dc2ea_416e33
 ssh-slaves:1.834.v622da_57f702c
 structs:324.va_f5d6774f3a_d
-timestamper:1.19
+timestamper:1.20
 token-macro:308.v4f2b_ed62b_b_16
 trilead-api:2.72.v2a_3236754f73
 uno-choice:2.6.4
