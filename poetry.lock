@@ -28,7 +28,7 @@ test = ["coverage", "flaky", "pip-tools", "pytest", "pytest-markdown", "pytest-m
 
 [[package]]
 name = "ansible-core"
-version = "2.13.3"
+version = "2.13.4"
 description = "Radically simple IT automation"
 category = "main"
 optional = false
@@ -593,7 +593,7 @@ test = ["websockets"]
 
 [[package]]
 name = "yamllint"
-version = "1.27.1"
+version = "1.28.0"
 description = "A linter for YAML files."
 category = "dev"
 optional = false
@@ -619,8 +619,8 @@ ansible-compat = [
     {file = "ansible_compat-2.2.0-py3-none-any.whl", hash = "sha256:ce69a67785ae96e8962794a47494339991a0ae242ab5dd14a76ee2137d09072e"},
 ]
 ansible-core = [
-    {file = "ansible-core-2.13.3.tar.gz", hash = "sha256:eec5042530ff1c0c8d13a36fa047c6dd9157efeefd464a856b4ce38be4cd1988"},
-    {file = "ansible_core-2.13.3-py3-none-any.whl", hash = "sha256:449dbcfbfe18e4f23dec0c29b9aa60d76d205657a8e136484f4edea49faf7614"},
+    {file = "ansible-core-2.13.4.tar.gz", hash = "sha256:78f45c2c472af60b9b4b8cbdaba5a3911079087891a9f6c6ed726327b8f21c6a"},
+    {file = "ansible_core-2.13.4-py3-none-any.whl", hash = "sha256:d83947d23441df6f96ea934032a948a060bf6db4852d28ed5f9c7b92b39165b7"},
 ]
 ansible-lint = [
     {file = "ansible-lint-6.5.2.tar.gz", hash = "sha256:f4432c74c0f28b2870a188b4999592f6338042f30d0c6f4ee11b32440ca9ffe4"},
@@ -1046,5 +1046,5 @@ websocket-client = [
     {file = "websocket_client-1.4.1-py3-none-any.whl", hash = "sha256:398909eb7e261f44b8f4bd474785b6ec5f5b499d4953342fe9755e01ef624090"},
 ]
 yamllint = [
-    {file = "yamllint-1.27.1.tar.gz", hash = "sha256:e688324b58560ab68a1a3cff2c0a474e3fed371dfe8da5d1b9817b7df55039ce"},
+    {file = "yamllint-1.28.0.tar.gz", hash = "sha256:9e3d8ddd16d0583214c5fdffe806c9344086721f107435f68bad990e5a88826b"},
 ]
