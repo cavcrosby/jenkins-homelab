@@ -19,10 +19,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: cavcrosby/pyenv-setup@v1.0.0
+      - uses: cavcrosby/setup-pyenv@v1.0.0
 
-      - id: makefiles-setup
-        uses: cavcrosby/makefiles-setup@v1.0.0
+      - id: setup-makefiles
+        uses: cavcrosby/setup-makefiles@v1.0.0
 
       - name: Login to Docker Hub
         uses: docker/login-action@v2
@@ -34,13 +34,13 @@ jobs:
         run: echo "GIT_TAG=\"$(git describe --tags --abbrev=0)\"" >> "${GITHUB_ENV}"  # yamllint disable-line rule:line-length
 
       - name: Install the managed Python version
-        run: pyenv install "$(make --include-dir "${{ steps.makefiles-setup.outputs.CAVCROSBY_MAKEFILES_PATH }}" get-virtualenv-python-version)"  # yamllint disable-line rule:line-length
+        run: pyenv install "$(make --include-dir "${{ steps.setup-makefiles.outputs.CAVCROSBY_MAKEFILES_PATH }}" get-virtualenv-python-version)"  # yamllint disable-line rule:line-length
 
       - name: Run project setup
-        run: make --include-dir "${{ steps.makefiles-setup.outputs.CAVCROSBY_MAKEFILES_PATH }}" setup  # yamllint disable-line rule:line-length
+        run: make --include-dir "${{ steps.setup-makefiles.outputs.CAVCROSBY_MAKEFILES_PATH }}" setup  # yamllint disable-line rule:line-length
 
       - name: Make docker image
-        run: make --include-dir "${{ steps.makefiles-setup.outputs.CAVCROSBY_MAKEFILES_PATH }}" IMAGE_RELEASE_BUILD="true" DOCKER_LATEST_VERSION_TAG="${GIT_TAG}" image  # yamllint disable-line rule:line-length
+        run: make --include-dir "${{ steps.setup-makefiles.outputs.CAVCROSBY_MAKEFILES_PATH }}" IMAGE_RELEASE_BUILD="true" DOCKER_LATEST_VERSION_TAG="${GIT_TAG}" image  # yamllint disable-line rule:line-length
 
       - name: Publish the docker image
-        run: make --include-dir "${{ steps.makefiles-setup.outputs.CAVCROSBY_MAKEFILES_PATH }}" IMAGE_RELEASE_BUILD="true" publish  # yamllint disable-line rule:line-length
+        run: make --include-dir "${{ steps.setup-makefiles.outputs.CAVCROSBY_MAKEFILES_PATH }}" IMAGE_RELEASE_BUILD="true" publish  # yamllint disable-line rule:line-length

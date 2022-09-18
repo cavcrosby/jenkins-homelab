@@ -11,16 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: cavcrosby/pyenv-setup@v1.0.0
+      - uses: cavcrosby/setup-pyenv@v1.0.0
 
-      - id: makefiles-setup
-        uses: cavcrosby/makefiles-setup@v1.0.0
+      - id: setup-makefiles
+        uses: cavcrosby/setup-makefiles@v1.0.0
 
       - name: Install the managed Python version
-        run: pyenv install "$(make --include-dir "${{ steps.makefiles-setup.outputs.CAVCROSBY_MAKEFILES_PATH }}" get-virtualenv-python-version)"  # yamllint disable-line rule:line-length
+        run: pyenv install "$(make --include-dir "${{ steps.setup-makefiles.outputs.CAVCROSBY_MAKEFILES_PATH }}" get-virtualenv-python-version)"  # yamllint disable-line rule:line-length
 
       - name: Run project setup
-        run: make --include-dir "${{ steps.makefiles-setup.outputs.CAVCROSBY_MAKEFILES_PATH }}" setup  # yamllint disable-line rule:line-length
+        run: make --include-dir "${{ steps.setup-makefiles.outputs.CAVCROSBY_MAKEFILES_PATH }}" setup  # yamllint disable-line rule:line-length
 
       # yamllint disable rule:line-length
       # MONITOR(cavcrosby): toggle SKIP_DOCKER_NETWORK as a temporary work around for
@@ -32,4 +32,4 @@ jobs:
       # https://github.com/docker/cli/pull/3547
       # yamllint enable
       - name: Run tests
-        run: make --include-dir "${{ steps.makefiles-setup.outputs.CAVCROSBY_MAKEFILES_PATH }}" SKIP_DOCKER_NETWORK="true" CONTINUOUS_INTEGRATION="true" test  # yamllint disable-line rule:line-length
+        run: make --include-dir "${{ steps.setup-makefiles.outputs.CAVCROSBY_MAKEFILES_PATH }}" SKIP_DOCKER_NETWORK="true" CONTINUOUS_INTEGRATION="true" test  # yamllint disable-line rule:line-length
