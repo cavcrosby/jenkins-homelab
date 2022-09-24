@@ -19,6 +19,10 @@ jobs:
         with:
           fetch-depth: 0
 
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
       - uses: cavcrosby/setup-pyenv@v1.0.0
 
       - id: setup-makefiles
@@ -33,11 +37,8 @@ jobs:
       - name: Git the tag
         run: echo "GIT_TAG=\"$(git describe --tags --abbrev=0)\"" >> "${GITHUB_ENV}"  # yamllint disable-line rule:line-length
 
-      - name: Install the managed Python version
-        run: pyenv install "$(make --include-dir "${{ steps.setup-makefiles.outputs.CAVCROSBY_MAKEFILES_PATH }}" get-virtualenv-python-version)"  # yamllint disable-line rule:line-length
-
       - name: Run project setup
-        run: make --include-dir "${{ steps.setup-makefiles.outputs.CAVCROSBY_MAKEFILES_PATH }}" setup  # yamllint disable-line rule:line-length
+        run: make --include-dir "${{ steps.setup-makefiles.outputs.CAVCROSBY_MAKEFILES_PATH }}" VIRTUALENV_PYTHON_VERSION="system" setup  # yamllint disable-line rule:line-length
 
       - name: Make docker image
         run: make --include-dir "${{ steps.setup-makefiles.outputs.CAVCROSBY_MAKEFILES_PATH }}" IMAGE_RELEASE_BUILD="true" DOCKER_LATEST_VERSION_TAG="${GIT_TAG}" image  # yamllint disable-line rule:line-length

@@ -20,9 +20,6 @@ export DOCKER_REPO = cavcrosby/jenkins-torkel
 DOCKER_VCS_LABEL = tech.cavcrosby.jenkins.torkel.vcs-repo=https://github.com/cavcrosby/jenkins-torkel
 
 include python.mk
-# overrides defaults set by included makefiles
-VIRTUALENV_PYTHON_VERSION = 3.9.5
-
 include ansible.mk
 ANSIBLE_SRC = $(shell find . \
 	\( \
