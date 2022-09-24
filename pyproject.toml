@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "jenkins-docker-torkel"
+name = "jenkins-torkel"
 version = "1.0.0"
-description = "A Jenkins docker image"
+description = "A Jenkins instance within a docker image"
 authors = ["Conner Crosby <conner@cavcrosby.tech>"]
 license = "MIT"
 
