@@ -83,7 +83,7 @@ ${LINT}: ${ANSIBLE_LINT} ${YAMLLINT}
 ${PUBLISH}: ${DOCKER_PUBLISH}
 
 .PHONY: ${TEST}
-${TEST}:
+${TEST}: ${DOCKER_IMAGE}
 >	${PYTHON} -m unittest --verbose
 
 .PHONY: ${CLEAN}
