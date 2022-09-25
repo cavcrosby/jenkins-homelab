@@ -31,8 +31,6 @@ jobs:
         with:
           python-version: 3.9
 
-      - uses: cavcrosby/setup-pyenv@v1.0.0
-
       - id: setup-makefiles
         uses: cavcrosby/setup-makefiles@v1.0.0
 
@@ -51,8 +49,8 @@ jobs:
       - name: Git the tag
         run: echo "GIT_TAG=\"$(git describe --tags --abbrev=0)\"" >> "${GITHUB_ENV}"  # yamllint disable-line rule:line-length
 
-      - name: Run project setup
-        run: make --include-dir "${{ steps.setup-makefiles.outputs.CAVCROSBY_MAKEFILES_PATH }}" VIRTUALENV_PYTHON_VERSION="system" setup  # yamllint disable-line rule:line-length
+      - name: Create a pyenv shim
+        run: install -m 755 "/dev/null" "/usr/local/bin/pyenv"
 
       - name: Make docker image
         run: make --include-dir "${{ steps.setup-makefiles.outputs.CAVCROSBY_MAKEFILES_PATH }}" IMAGE_RELEASE_BUILD="true" DOCKER_LATEST_VERSION_TAG="${GIT_TAG}" image  # yamllint disable-line rule:line-length

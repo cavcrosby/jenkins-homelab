@@ -58,7 +58,7 @@ class TestJenkinsHealth(unittest.TestCase):
     def test_jenkins_health(self):
         """Check if Jenkins was able to initialize successfully."""
         # give time for Jenkins to spin up
-        time.sleep(10)
+        time.sleep(30)
 
         self.container.reload()
         jenkins_instance = Jenkins(

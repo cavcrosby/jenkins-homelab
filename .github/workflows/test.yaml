@@ -20,14 +20,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: cavcrosby/setup-pyenv@v1.0.0
-
       - uses: actions/setup-python@v4
         with:
           python-version: 3.9
-
-      - id: setup-makefiles
-        uses: cavcrosby/setup-makefiles@v1.0.0
 
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
@@ -35,17 +30,17 @@ jobs:
           limit-access-to-actor: true
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug }}
 
-      - name: Run project setup
-        run: make --include-dir "${{ steps.setup-makefiles.outputs.CAVCROSBY_MAKEFILES_PATH }}" VIRTUALENV_PYTHON_VERSION="system" setup  # yamllint disable-line rule:line-length
+      - name: Install poetry
+        run: python -m pip install poetry
 
-      # yamllint disable rule:line-length
-      # MONITOR(cavcrosby): toggle SKIP_DOCKER_NETWORK as a temporary work around for
-      # the 'make dismantle' target as this target assumes the Docker client is the
-      # customized version I have on my dev machine. That said, the changes made to
-      # this Docker client have been pushed upstream. Depending on how that goes, will
-      # affect what happens next.
-      #
-      # https://github.com/docker/cli/pull/3547
-      # yamllint enable
+      - name: Run project setup
+        run: poetry install --no-root
+
       - name: Run tests
-        run: make --include-dir "${{ steps.setup-makefiles.outputs.CAVCROSBY_MAKEFILES_PATH }}" SKIP_DOCKER_NETWORK="true" CONTINUOUS_INTEGRATION="true" test  # yamllint disable-line rule:line-length
+        run: |
+          export CONTAINER_NAME="jenkins-torkel"
+          export DOCKER_REPO="cavcrosby/jenkins-torkel"
+          export DOCKER_CONTEXT_TAG="test"
+
+          docker build --tag "${DOCKER_REPO}:${DOCKER_CONTEXT_TAG}" "${PWD}"
+          poetry run python -m unittest --verbose
