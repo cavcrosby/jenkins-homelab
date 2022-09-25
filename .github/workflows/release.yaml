@@ -12,12 +12,12 @@ on:  # yamllint disable-line rule:truthy
         required: false
         default: false
   schedule:
-    - cron: "5 11 * * 0"
+    - cron: '5 11 * * 0'
   push:
     branches:
-      - "!*"
+      - '!*'
     tags:
-      - "v*"
+      - 'v*'
 
 jobs:
   release:
@@ -29,7 +29,7 @@ jobs:
 
       - uses: actions/setup-python@v4
         with:
-          python-version: 3.9
+          python-version: '3.9'
 
       - id: setup-makefiles
         uses: cavcrosby/setup-makefiles@v1.0.0
