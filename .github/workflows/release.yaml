@@ -3,6 +3,12 @@ name: Release
 
 on:  # yamllint disable-line rule:truthy
   workflow_dispatch:
+    inputs:
+      debug:
+        type: boolean
+        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'     
+        required: false
+        default: false
   schedule:
     - cron: "5 11 * * 0"
   push:
@@ -33,6 +39,12 @@ jobs:
         with:
           username: cavcrosby
           password: ${{ secrets.DOCKERHUB_SECRET }}
+
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        with:
+          limit-access-to-actor: true
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug }}
 
       - name: Git the tag
         run: echo "GIT_TAG=\"$(git describe --tags --abbrev=0)\"" >> "${GITHUB_ENV}"  # yamllint disable-line rule:line-length

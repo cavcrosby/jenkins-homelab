@@ -2,6 +2,13 @@
 name: Test
 
 on:  # yamllint disable-line rule:truthy
+  workflow_dispatch:
+    inputs:
+      debug:
+        type: boolean
+        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'     
+        required: false
+        default: false
   push:
     branches:
       - '**'
@@ -19,6 +26,12 @@ jobs:
 
       - id: setup-makefiles
         uses: cavcrosby/setup-makefiles@v1.0.0
+      
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        with:
+          limit-access-to-actor: true
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug }}
 
       - name: Run project setup
         run: make --include-dir "${{ steps.setup-makefiles.outputs.CAVCROSBY_MAKEFILES_PATH }}" VIRTUALENV_PYTHON_VERSION="system" setup  # yamllint disable-line rule:line-length
