@@ -21,6 +21,7 @@ DOCKER_VCS_LABEL = tech.cavcrosby.jenkins.torkel.vcs-repo=https://github.com/cav
 
 include python.mk
 include ansible.mk
+# overrides defaults set by included makefiles
 ANSIBLE_SRC = $(shell find . \
 	\( \
 		\( -type f \) \
