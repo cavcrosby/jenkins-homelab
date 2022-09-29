@@ -48,7 +48,7 @@ ${HELP}:
 	# inspired by the makefiles of the Linux kernel and Mercurial
 >	@echo 'Common make targets:'
 >	@echo '  ${SETUP}        - installs the distro-independent dependencies for this'
->	@echo '                 project and runs the needed jcascutil setup'
+>	@echo '                 project'
 >	@echo '  ${IMAGE}        - creates the docker image that host Jenkins'
 >	@echo '  ${DEPLOY}       - creates a container from the project image'
 >	@echo '  ${DISMANTLE}    - removes a deployed container and the supporting'
