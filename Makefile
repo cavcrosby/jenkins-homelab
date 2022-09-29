@@ -37,6 +37,9 @@ YAML_SRC = \
 	./casc.yaml\
 	./.ansible-lint
 
+# executables
+PRE_COMMIT = pre-commit
+
 # simply expanded variables
 executables := \
 	${python_executables}\
@@ -67,6 +70,7 @@ ${HELP}:
 .PHONY: ${SETUP}
 ${SETUP}: ${DOCKER_ANSIBLE_INVENTORY} ${PYENV_POETRY_SETUP}
 >	${ANSIBLE_GALAXY} collection install --requirements-file ./requirements.yml
+>	${PRE_COMMIT} install
 
 .PHONY: ${IMAGE}
 ${IMAGE}: ${DOCKER_IMAGE}
