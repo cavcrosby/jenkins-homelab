@@ -28,7 +28,7 @@ handlebars:3.0.8
 jackson2-api:2.13.3-285.vc03c0256d517
 javax-activation-api:1.2.0-5
 javax-mail-api:1.6.2-8
-jaxb:2.3.6-1
+jaxb:2.3.6-2
 jdk-tool:55.v1b_32b_6ca_f9ca
 jjwt-api:0.11.5-77.v646c772fddb_0
 jnr-posix-api:3.1.15-1
