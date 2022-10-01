@@ -64,8 +64,6 @@ ${HELP}:
 >	@echo 'Common make configurations (e.g. make [config]=1 [targets]):'
 >	@echo '  ANSIBLE_JC_LOG_SECRETS       - toggle logging secrets from Ansible when deploying a'
 >	@echo '                                 project image (e.g. false/true, or 0/1)'
->	@echo '  CONTINUOUS_INTEGRATION       - toggle to possibly differentiate target behavior'
->	@echo '                                 during ci (e.g. false/true, or 0/1)'
 
 .PHONY: ${SETUP}
 ${SETUP}: ${DOCKER_ANSIBLE_INVENTORY} ${PYENV_POETRY_SETUP}
