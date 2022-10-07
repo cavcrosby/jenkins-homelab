@@ -43,7 +43,7 @@ resolvelib = ">=0.5.3,<0.9.0"
 
 [[package]]
 name = "ansible-lint"
-version = "6.7.0"
+version = "6.8.0"
 description = "Checks playbooks for practices and behavior that could potentially be improved"
 category = "dev"
 optional = false
@@ -53,7 +53,6 @@ python-versions = ">=3.8"
 ansible-compat = ">=2.2.1"
 ansible-core = ">=2.12.0"
 black = ">=22.1.0"
-enrich = ">=1.2.6"
 filelock = "*"
 jsonschema = ">=4.9.0"
 packaging = "*"
@@ -234,20 +233,6 @@ websocket-client = ">=0.32.0"
 
 [package.extras]
 ssh = ["paramiko (>=2.4.3)"]
-
-[[package]]
-name = "enrich"
-version = "1.2.7"
-description = "enrich"
-category = "dev"
-optional = false
-python-versions = ">=3.6"
-
-[package.dependencies]
-rich = ">=9.5.1"
-
-[package.extras]
-test = ["mock (>=3.0.5)", "pytest (>=5.4.0)", "pytest-cov (>=2.7.1)", "pytest-mock (>=3.3.1)", "pytest-plus", "pytest-xdist (>=1.29.0)"]
 
 [[package]]
 name = "filelock"
@@ -697,7 +682,7 @@ setuptools = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "~3.9"
-content-hash = "f6c2208b841b382f1ec101a674baa087c62a688be54b280cbeb518bc56b0e10c"
+content-hash = "2396dd979736ad1c4d7c219c1b9ac4634faf11280b0e291c1ddd7c189daf57f5"
 
 [metadata.files]
 ansible = [
@@ -713,8 +698,8 @@ ansible-core = [
     {file = "ansible_core-2.13.4-py3-none-any.whl", hash = "sha256:d83947d23441df6f96ea934032a948a060bf6db4852d28ed5f9c7b92b39165b7"},
 ]
 ansible-lint = [
-    {file = "ansible-lint-6.7.0.tar.gz", hash = "sha256:a111295152d2de812857cac6bb2c6b003315826d9cae1410a4f10e3eeb255b09"},
-    {file = "ansible_lint-6.7.0-py3-none-any.whl", hash = "sha256:62a579b50e6d40198cdfb7ba5c629e4f0e21d4719f844325b09b6789e9a91067"},
+    {file = "ansible-lint-6.8.0.tar.gz", hash = "sha256:804dc715436cde6a74f44e808445c2f11d7efd016541b27bb6ec58cfdb1b1f6d"},
+    {file = "ansible_lint-6.8.0-py3-none-any.whl", hash = "sha256:544877ca281a70991405ee67c3bc111c7570dc28db5f08e7dcdb2b22ae6e32fc"},
 ]
 api4jenkins = [
     {file = "api4jenkins-1.13-py3-none-any.whl", hash = "sha256:5cfafd4523590ebdcc72126cbfeef3ff1f240dbe11a561f74e09673db7191716"},
@@ -878,10 +863,6 @@ distlib = [
 docker = [
     {file = "docker-6.0.0-py3-none-any.whl", hash = "sha256:6e06ee8eca46cd88733df09b6b80c24a1a556bc5cb1e1ae54b2c239886d245cf"},
     {file = "docker-6.0.0.tar.gz", hash = "sha256:19e330470af40167d293b0352578c1fa22d74b34d3edf5d4ff90ebc203bbb2f1"},
-]
-enrich = [
-    {file = "enrich-1.2.7-py3-none-any.whl", hash = "sha256:f29b2c8c124b4dbd7c975ab5c3568f6c7a47938ea3b7d2106c8a3bd346545e4f"},
-    {file = "enrich-1.2.7.tar.gz", hash = "sha256:0a2ab0d2931dff8947012602d1234d2a3ee002d9a355b5d70be6bf5466008893"},
 ]
 filelock = [
     {file = "filelock-3.8.0-py3-none-any.whl", hash = "sha256:617eb4e5eedc82fc5f47b6d61e4d11cb837c56cb4544e39081099fa17ad109d4"},
