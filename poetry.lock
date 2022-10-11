@@ -43,7 +43,7 @@ resolvelib = ">=0.5.3,<0.9.0"
 
 [[package]]
 name = "ansible-lint"
-version = "6.8.0"
+version = "6.8.1"
 description = "Checks playbooks for practices and behavior that could potentially be improved"
 category = "dev"
 optional = false
@@ -89,7 +89,7 @@ python-versions = ">=3.5"
 dev = ["cloudpickle", "coverage[toml] (>=5.0.2)", "furo", "hypothesis", "mypy (>=0.900,!=0.940)", "pre-commit", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins", "sphinx", "sphinx-notfound-page", "zope.interface"]
 docs = ["furo", "sphinx", "sphinx-notfound-page", "zope.interface"]
 tests = ["cloudpickle", "coverage[toml] (>=5.0.2)", "hypothesis", "mypy (>=0.900,!=0.940)", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins", "zope.interface"]
-tests_no_zope = ["cloudpickle", "coverage[toml] (>=5.0.2)", "hypothesis", "mypy (>=0.900,!=0.940)", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins"]
+tests-no-zope = ["cloudpickle", "coverage[toml] (>=5.0.2)", "hypothesis", "mypy (>=0.900,!=0.940)", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins"]
 
 [[package]]
 name = "black"
@@ -157,7 +157,7 @@ optional = false
 python-versions = ">=3.6.0"
 
 [package.extras]
-unicode_backport = ["unicodedata2"]
+unicode-backport = ["unicodedata2"]
 
 [[package]]
 name = "click"
@@ -502,7 +502,7 @@ urllib3 = ">=1.21.1,<1.27"
 
 [package.extras]
 socks = ["PySocks (>=1.5.6,!=1.5.7)"]
-use_chardet_on_py3 = ["chardet (>=3.0.2,<6)"]
+use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
 name = "resolvelib"
@@ -682,7 +682,7 @@ setuptools = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "~3.9"
-content-hash = "2396dd979736ad1c4d7c219c1b9ac4634faf11280b0e291c1ddd7c189daf57f5"
+content-hash = "7c27497b0c57766d26beefb0fd37d11a5a188563f2d43789f508b98632151a6b"
 
 [metadata.files]
 ansible = [
@@ -698,8 +698,8 @@ ansible-core = [
     {file = "ansible_core-2.13.4-py3-none-any.whl", hash = "sha256:d83947d23441df6f96ea934032a948a060bf6db4852d28ed5f9c7b92b39165b7"},
 ]
 ansible-lint = [
-    {file = "ansible-lint-6.8.0.tar.gz", hash = "sha256:804dc715436cde6a74f44e808445c2f11d7efd016541b27bb6ec58cfdb1b1f6d"},
-    {file = "ansible_lint-6.8.0-py3-none-any.whl", hash = "sha256:544877ca281a70991405ee67c3bc111c7570dc28db5f08e7dcdb2b22ae6e32fc"},
+    {file = "ansible-lint-6.8.1.tar.gz", hash = "sha256:13f722d3e0323b0ce3a107358c0e1e2169db5a93b68ffcf20e1030bba16fd70d"},
+    {file = "ansible_lint-6.8.1-py3-none-any.whl", hash = "sha256:fcdd7a1dd152510ff917f0a67112b4536bac139fb058789a3eaaddc3f04039d3"},
 ]
 api4jenkins = [
     {file = "api4jenkins-1.13-py3-none-any.whl", hash = "sha256:5cfafd4523590ebdcc72126cbfeef3ff1f240dbe11a561f74e09673db7191716"},
