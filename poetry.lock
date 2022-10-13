@@ -1,13 +1,13 @@
 [[package]]
 name = "ansible"
-version = "6.4.0"
+version = "6.5.0"
 description = "Radically simple IT automation"
 category = "main"
 optional = false
 python-versions = ">=3.8"
 
 [package.dependencies]
-ansible-core = ">=2.13.4,<2.14.0"
+ansible-core = ">=2.13.5,<2.14.0"
 
 [[package]]
 name = "ansible-compat"
@@ -682,12 +682,12 @@ setuptools = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "~3.9"
-content-hash = "7c27497b0c57766d26beefb0fd37d11a5a188563f2d43789f508b98632151a6b"
+content-hash = "6a565bdafbcaf750a7d3a19c9a7ad967ac07e3980c4485ee76906e390c2936e0"
 
 [metadata.files]
 ansible = [
-    {file = "ansible-6.4.0-py3-none-any.whl", hash = "sha256:3623c7d85ed4bc37fff6f0b80f6a3debda134ebe6b33b06b42581bedc3bfbd68"},
-    {file = "ansible-6.4.0.tar.gz", hash = "sha256:80b422f73e2feeddc456581bf7de22e14ccd3e7fdb0d5060176e21c350ed8320"},
+    {file = "ansible-6.5.0-py3-none-any.whl", hash = "sha256:2cc8c9faf9351dc46d92281eb28f21be3d2faa212b20bfc05afa98946cb788de"},
+    {file = "ansible-6.5.0.tar.gz", hash = "sha256:7c0cdcd1121a5f12ab2da4bdd2e14c2c153e01214bfc6a6bc156b61bd7401c5b"},
 ]
 ansible-compat = [
     {file = "ansible-compat-2.2.1.tar.gz", hash = "sha256:7a012753a0a02dab2f22b0e574e3e7b00399f660606154474ffe25621fa80d3b"},
