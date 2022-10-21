@@ -25,7 +25,7 @@ github-api:1.303-400.v35c2d8258028
 github-branch-source:1695.v88de84e9f6b_9
 git-server:99.va_0826a_b_cdfa_d
 handlebars:3.0.8
-jackson2-api:2.13.4-293.vee957901b_6fb
+jackson2-api:2.13.4.20221013-295.v8e29ea_354141
 javax-activation-api:1.2.0-5
 javax-mail-api:1.6.2-8
 jaxb:2.3.6-2
