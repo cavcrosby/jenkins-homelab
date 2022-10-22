@@ -8,7 +8,7 @@ branch-api:2.1046.v0ca_37783ecc5
 build-timeout:1.24
 caffeine-api:2.9.3-65.v6a_47d0f4d1fe
 checks-api:1.7.5
-cloudbees-folder:6.770.ve57b_a_fb_6a_67c
+cloudbees-folder:6.773.vd2dcc704ee7e
 command-launcher:90.v669d7ccb_7c31
 configuration-as-code:1559.v38a_b_2e3b_6b_b_7
 credentials:1189.vf61b_a_5e2f62e
