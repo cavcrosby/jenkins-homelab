@@ -43,7 +43,7 @@ resolvelib = ">=0.5.3,<0.9.0"
 
 [[package]]
 name = "ansible-lint"
-version = "6.8.3"
+version = "6.8.4"
 description = "Checks playbooks for practices and behavior that could potentially be improved"
 category = "dev"
 optional = false
@@ -682,7 +682,7 @@ setuptools = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "~3.9"
-content-hash = "8c3f329f6a66bd7a0be56c8a607ab0a1b20858c26f9b62b151a675106fba56eb"
+content-hash = "eb0c03b59cffef4a72bd7a9cb12f28ceb9a8c36a2a8b2b22866c0c64adaa42a4"
 
 [metadata.files]
 ansible = [
@@ -698,8 +698,8 @@ ansible-core = [
     {file = "ansible_core-2.13.5-py3-none-any.whl", hash = "sha256:3d2503ede324e0e73051b14e77f732a3cb0aed2437f94608af53929d2d1d54c8"},
 ]
 ansible-lint = [
-    {file = "ansible-lint-6.8.3.tar.gz", hash = "sha256:2faad6121d5c4bd239f6964e06742514f0bb079687cc24bffb76c73952e6ebf8"},
-    {file = "ansible_lint-6.8.3-py3-none-any.whl", hash = "sha256:b2424c1c103bc2b573e1dcbd01eb11c6ef6a54ca35a3ad61c75501fedec41fed"},
+    {file = "ansible-lint-6.8.4.tar.gz", hash = "sha256:b7c9afbda3da25e106ce648fb9846765237c672bacafd069f11bdaa85ece1648"},
+    {file = "ansible_lint-6.8.4-py3-none-any.whl", hash = "sha256:6064cfa95403674ed6ea77b852705333f79f545d154b62a9ec7968179ba4f72b"},
 ]
 api4jenkins = [
     {file = "api4jenkins-1.13-py3-none-any.whl", hash = "sha256:5cfafd4523590ebdcc72126cbfeef3ff1f240dbe11a561f74e09673db7191716"},
