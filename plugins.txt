@@ -1,5 +1,5 @@
 ace-editor:1.1
-antisamy-markup-formatter:2.7
+antisamy-markup-formatter:155.v795fb_8702324
 apache-httpcomponents-client-4-api:4.5.13-138.v4e7d9a_7b_a_e61
 bootstrap4-api:4.6.0-5
 bootstrap5-api:5.2.1-3
