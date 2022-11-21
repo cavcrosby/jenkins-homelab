@@ -44,27 +44,27 @@ resolvelib = ">=0.5.3,<0.9.0"
 
 [[package]]
 name = "ansible-lint"
-version = "6.8.6"
+version = "6.8.7"
 description = "Checks playbooks for practices and behavior that could potentially be improved"
 category = "dev"
 optional = false
 python-versions = ">=3.8"
 
 [package.dependencies]
-ansible-compat = ">=2.2.4"
-ansible-core = ">=2.12.0"
+ansible-compat = ">=2.2.5"
+ansible-core = {version = ">=2.12.0", markers = "python_version >= \"3.9\""}
 black = ">=22.1.0"
 filelock = "*"
-jsonschema = ">=4.9.0"
+jsonschema = ">=4.17.0"
 packaging = "*"
-pyyaml = "*"
-rich = ">=9.5.1"
-"ruamel.yaml" = ">=0.15.34,<0.18"
-wcmatch = ">=7.0"
-yamllint = ">=1.25.0"
+pyyaml = ">=5.4.1"
+rich = ">=12.6.0"
+"ruamel.yaml" = ">=0.17.21,<0.18"
+wcmatch = ">=8.4.1"
+yamllint = ">=1.28.0"
 
 [package.extras]
-docs = ["myst-parser (>=0.16.1)", "pipdeptree (>=2.2.1)", "sphinx (>=4.4.0)", "sphinx-ansible-theme (>=0.9.1)", "sphinx-rtd-theme (>=1.0.0,<2.0.0)", "sphinxcontrib-apidoc (>=0.3.0)", "sphinxcontrib-programoutput2 (>=2.0a1)", "yamllint (>=1.26.3)"]
+docs = ["myst-parser (>=0.16.1)", "pipdeptree (>=2.2.1)", "sphinx (>=4.4.0)", "sphinx-ansible-theme (>=0.9.1)", "sphinx-rtd-theme (>=1.0.0,<2.0.0)", "sphinxcontrib-apidoc (>=0.3.0)", "sphinxcontrib-programoutput2 (>=2.0a1)"]
 test = ["black", "coverage-enable-subprocess", "coverage[toml] (>=6.4.4)", "flake8", "flake8-future-annotations", "flaky (>=3.7.0)", "mypy", "psutil", "pylint", "pytest (>=7.2.0)", "pytest-mock", "pytest-plus (>=0.2)", "pytest-xdist (>=2.1.0)"]
 
 [[package]]
@@ -683,7 +683,7 @@ setuptools = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "~3.9"
-content-hash = "7df9e1b3b0ee5c3e24404735f11864f3620716c93bcd7ca0c570a8b9cb2194fa"
+content-hash = "ef690af70db3cb3123bfb66ad708ee01a4e14fa82b3865db46bc56068e45e5e7"
 
 [metadata.files]
 ansible = [
@@ -699,8 +699,8 @@ ansible-core = [
     {file = "ansible_core-2.13.6-py3-none-any.whl", hash = "sha256:e31fd550a5ea9423f1fc1391de6b41bb0d264a83bbfc9c7edfef0f78b7624fd3"},
 ]
 ansible-lint = [
-    {file = "ansible-lint-6.8.6.tar.gz", hash = "sha256:171fe8dad62078b9819b5c74d60eb5afaa30ea9cb9c9ba8706149e56c55a9b6e"},
-    {file = "ansible_lint-6.8.6-py3-none-any.whl", hash = "sha256:bac923e2fa805973838390565e2ddd792ca4ffd33d66f21ab629dd6a84407d67"},
+    {file = "ansible-lint-6.8.7.tar.gz", hash = "sha256:de3de4e57cd54e17c1ec3a0b4a21d4811838e77d67b56cbe8f91107f2a434432"},
+    {file = "ansible_lint-6.8.7-py3-none-any.whl", hash = "sha256:1824afce2a5619b47c19f6377a0d85b4f39e80b1fc1857191d6a908d68396bf9"},
 ]
 api4jenkins = [
     {file = "api4jenkins-1.13-py3-none-any.whl", hash = "sha256:5cfafd4523590ebdcc72126cbfeef3ff1f240dbe11a561f74e09673db7191716"},
