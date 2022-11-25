@@ -580,14 +580,14 @@ python-versions = "*"
 
 [[package]]
 name = "subprocess-tee"
-version = "0.3.5"
+version = "0.4.0"
 description = "subprocess-tee"
 category = "dev"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.8"
 
 [package.extras]
-test = ["enrich (>=1.2.6)", "mock (>=4.0.3)", "molecule (>=3.4.0)", "pytest (>=6.2.5)", "pytest-cov (>=2.12.1)", "pytest-plus (>=0.2)", "pytest-xdist (>=2.3.0)"]
+test = ["enrich (>=1.2.6)", "molecule (>=3.4.0)", "pytest (>=6.2.5)", "pytest-cov (>=2.12.1)", "pytest-plus (>=0.2)", "pytest-xdist (>=2.3.0)"]
 
 [[package]]
 name = "toml"
@@ -1127,8 +1127,8 @@ snowballstemmer = [
     {file = "snowballstemmer-2.2.0.tar.gz", hash = "sha256:09b16deb8547d3412ad7b590689584cd0fe25ec8db3be37788be3810cbf19cb1"},
 ]
 subprocess-tee = [
-    {file = "subprocess-tee-0.3.5.tar.gz", hash = "sha256:ff5cced589a4b8ac973276ca1ba21bb6e3de600cde11a69947ff51f696efd577"},
-    {file = "subprocess_tee-0.3.5-py3-none-any.whl", hash = "sha256:d34186c639aa7f8013b5dfba80e17f52589539137c9d9205f2ae1c1bd03549e1"},
+    {file = "subprocess-tee-0.4.0.tar.gz", hash = "sha256:7ea885ff32cdb2b2d3b2a6c464492f2ee1ebbf324e50598d75de4f6f3ea0f149"},
+    {file = "subprocess_tee-0.4.0-py3-none-any.whl", hash = "sha256:dae5fba2640b45442a84b23f887aadfbe3f9addcca8320f5f99acb8d5c36b77e"},
 ]
 toml = [
     {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},
