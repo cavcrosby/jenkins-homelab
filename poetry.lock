@@ -69,11 +69,11 @@ test = ["black", "coverage-enable-subprocess", "coverage[toml] (>=6.4.4)", "flak
 
 [[package]]
 name = "api4jenkins"
-version = "1.13"
+version = "1.14"
 description = "Jenkins Python Client"
 category = "dev"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.7"
 
 [package.dependencies]
 requests = ">=2.23.0"
@@ -703,8 +703,8 @@ ansible-lint = [
     {file = "ansible_lint-6.8.7-py3-none-any.whl", hash = "sha256:1824afce2a5619b47c19f6377a0d85b4f39e80b1fc1857191d6a908d68396bf9"},
 ]
 api4jenkins = [
-    {file = "api4jenkins-1.13-py3-none-any.whl", hash = "sha256:5cfafd4523590ebdcc72126cbfeef3ff1f240dbe11a561f74e09673db7191716"},
-    {file = "api4jenkins-1.13.tar.gz", hash = "sha256:8cc8a684e685c65c503fb450ef3f8176c03da50d647488cc046d869fd8a8b28f"},
+    {file = "api4jenkins-1.14-py3-none-any.whl", hash = "sha256:cbfa0723be49a6aef9953db0651edd3aa9f1ec7fdc305cad9c89ee82b9d53b5f"},
+    {file = "api4jenkins-1.14.tar.gz", hash = "sha256:522e94da90f399d9498cdbe0be75b18c523a95cebb7b821096977c4480dbf0da"},
 ]
 attrs = [
     {file = "attrs-22.1.0-py2.py3-none-any.whl", hash = "sha256:86efa402f67bf2df34f51a335487cf46b1ec130d02b8d39fd248abfd30da551c"},
