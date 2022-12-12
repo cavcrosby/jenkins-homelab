@@ -13,7 +13,7 @@ command-launcher:90.v669d7ccb_7c31
 configuration-as-code:1569.vb_72405b_80249
 credentials:1214.v1de940103927
 credentials-binding:523.vd859a_4b_122e6
-display-url-api:2.3.6
+display-url-api:2.3.7
 durable-task:503.v57154d18d478
 echarts-api:5.4.0-1
 email-ext:2.92
