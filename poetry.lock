@@ -58,18 +58,18 @@ resolvelib = ">=0.5.3,<0.9.0"
 
 [[package]]
 name = "ansible-lint"
-version = "6.9.1"
+version = "6.10.0"
 description = "Checks playbooks for practices and behavior that could potentially be improved"
 category = "dev"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "ansible-lint-6.9.1.tar.gz", hash = "sha256:4c85f0d61700042cab964dd7bdc9227137ba5490249f705acfd9de46eb00a07f"},
-    {file = "ansible_lint-6.9.1-py3-none-any.whl", hash = "sha256:b614a7b669d72d3aa7a0379f3ef9b27ad781be50044e0dd27b3f9773dc36467a"},
+    {file = "ansible-lint-6.10.0.tar.gz", hash = "sha256:f5ecec58ebe7b6bfc4976be7d6e400411a8af05b0e1a19f15f25f59f3401348c"},
+    {file = "ansible_lint-6.10.0-py3-none-any.whl", hash = "sha256:5513fba2a66d0201fa9f23c5c0ac375a3dcd5acc2dee767b294406e54978664b"},
 ]
 
 [package.dependencies]
-ansible-compat = ">=2.2.6"
+ansible-compat = ">=2.2.7"
 ansible-core = {version = ">=2.12.0", markers = "python_version >= \"3.9\""}
 black = ">=22.8.0"
 filelock = ">=3.3.0"
@@ -83,7 +83,7 @@ yamllint = ">=1.26.3"
 
 [package.extras]
 docs = ["myst-parser (>=0.16.1)", "pipdeptree (>=2.2.1)", "sphinx (>=4.4.0)", "sphinx-ansible-theme (>=0.9.1)", "sphinx-rtd-theme (>=1.0.0,<2.0.0)", "sphinxcontrib-apidoc (>=0.3.0)", "sphinxcontrib-programoutput2 (>=2.0a1)"]
-test = ["black", "coverage-enable-subprocess", "coverage[toml] (>=6.4.4)", "flake8", "flake8-future-annotations", "flaky (>=3.7.0)", "mypy", "psutil", "pylint", "pytest (>=7.2.0)", "pytest-mock", "pytest-plus (>=0.2)", "pytest-xdist (>=2.1.0)"]
+test = ["black", "coverage-enable-subprocess", "coverage[toml] (>=6.4.4)", "flake8", "flake8-future-annotations", "mypy", "psutil", "pylint", "pytest (>=7.2.0)", "pytest-mock", "pytest-plus (>=0.2)", "pytest-xdist (>=2.1.0)"]
 
 [[package]]
 name = "api4jenkins"
@@ -1135,4 +1135,4 @@ setuptools = "*"
 [metadata]
 lock-version = "2.0"
 python-versions = "~3.9"
-content-hash = "1402a80c2a20cb40bedcac2866bc52a416511682aa5b4b11f71f44494b3a43ab"
+content-hash = "4c39478746389a07d1f5a5ed8cdd8209bf5dafe009bc9e69ae9ef05c7b7a9994"
