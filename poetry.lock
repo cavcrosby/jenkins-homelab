@@ -58,14 +58,14 @@ resolvelib = ">=0.5.3,<0.9.0"
 
 [[package]]
 name = "ansible-lint"
-version = "6.10.0"
+version = "6.10.1"
 description = "Checks playbooks for practices and behavior that could potentially be improved"
 category = "dev"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "ansible-lint-6.10.0.tar.gz", hash = "sha256:f5ecec58ebe7b6bfc4976be7d6e400411a8af05b0e1a19f15f25f59f3401348c"},
-    {file = "ansible_lint-6.10.0-py3-none-any.whl", hash = "sha256:5513fba2a66d0201fa9f23c5c0ac375a3dcd5acc2dee767b294406e54978664b"},
+    {file = "ansible-lint-6.10.1.tar.gz", hash = "sha256:24f15b61af52bc22b05d008f9eb7662f1cf42ab74008da9f89af71fc540ccfa4"},
+    {file = "ansible_lint-6.10.1-py3-none-any.whl", hash = "sha256:bfdda207c4aadaca788c2f7859fc87ee4847c2d5bc8ad1170c7ea4bd481e1e43"},
 ]
 
 [package.dependencies]
@@ -83,6 +83,7 @@ yamllint = ">=1.26.3"
 
 [package.extras]
 docs = ["myst-parser (>=0.16.1)", "pipdeptree (>=2.2.1)", "sphinx (>=4.4.0)", "sphinx-ansible-theme (>=0.9.1)", "sphinx-rtd-theme (>=1.0.0,<2.0.0)", "sphinxcontrib-apidoc (>=0.3.0)", "sphinxcontrib-programoutput2 (>=2.0a1)"]
+lock = ["ansible-compat (==2.2.7)", "ansible-core (==2.14.1)", "attrs (==22.2.0)", "black (==22.12.0)", "bracex (==2.3.post1)", "cffi (==1.15.1)", "click (==8.1.3)", "commonmark (==0.9.1)", "cryptography (==38.0.4)", "filelock (==3.9.0)", "jinja2 (==3.1.2)", "jsonschema (==4.17.3)", "markupsafe (==2.1.1)", "mypy-extensions (==0.4.3)", "packaging (==22.0)", "pathspec (==0.10.3)", "platformdirs (==2.6.2)", "pycparser (==2.21)", "pygments (==2.13.0)", "pyrsistent (==0.19.3)", "pyyaml (==6.0)", "resolvelib (==0.8.1)", "rich (==13.0.0)", "ruamel-yaml (==0.17.21)", "ruamel-yaml-clib (==0.2.7)", "subprocess-tee (==0.4.1)", "tomli (==2.0.1)", "typing-extensions (==4.4.0)", "wcmatch (==8.4.1)", "yamllint (==1.28.0)"]
 test = ["black", "coverage-enable-subprocess", "coverage[toml] (>=6.4.4)", "flake8", "flake8-future-annotations", "mypy", "psutil", "pylint", "pytest (>=7.2.0)", "pytest-mock", "pytest-plus (>=0.2)", "pytest-xdist (>=2.1.0)"]
 
 [[package]]
@@ -1128,4 +1129,4 @@ setuptools = "*"
 [metadata]
 lock-version = "2.0"
 python-versions = "~3.9"
-content-hash = "4c39478746389a07d1f5a5ed8cdd8209bf5dafe009bc9e69ae9ef05c7b7a9994"
+content-hash = "29dbd76b261451e8f0fae05c466a296378c970dd91ed3f2584bfc354b3f2572e"

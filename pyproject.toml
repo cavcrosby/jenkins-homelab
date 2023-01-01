@@ -11,7 +11,7 @@ ansible = "6.7.0"
 docker = "^6.0.0"
 
 [tool.poetry.dev-dependencies]
-ansible-lint = { version = "6.10.0", markers = "platform_system != 'Windows'" }
+ansible-lint = { version = "6.10.1", markers = "platform_system != 'Windows'" }
 flake8 = "^6.0.0"
 black = "^22.3.0"
 flake8-docstrings = "^1.6.0"
