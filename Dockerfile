@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:jdk11@sha256:c3e4473fd7493611a74a4ce01f7b2be3f49863b4f6ec887e9cd086df47ca60f2
+FROM jenkins/jenkins:jdk11@sha256:bc8c3b1274cf461e8d94e19230a127829e3238ed38e7f1dd8b1321affda71be6
 
 ARG BRANCH
 ARG COMMIT
