@@ -26,7 +26,7 @@ github-branch-source:1701.v00cc8184df93
 git-server:99.va_0826a_b_cdfa_d
 handlebars:3.0.8
 jackson2-api:2.14.2-319.v37853346a_229
-javax-activation-api:1.2.0-5
+javax-activation-api:1.2.0-6
 javax-mail-api:1.6.2-8
 jaxb:2.3.8-1
 jdk-tool:63.v62d2fd4b_4793
