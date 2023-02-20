@@ -77,7 +77,7 @@ uno-choice:2.6.4
 variant:59.vf075fe829ccb
 workflow-aggregator:590.v6a_d052e5a_a_b_5
 workflow-api:1208.v0cc7c6e0da_9e
-workflow-basic-steps:994.vd57e3ca_46d24
+workflow-basic-steps:1010.vf7a_b_98e847c1
 workflow-cps:3618.v13db_a_21f0fcf
 workflow-durable-task-step:1234.v019404b_3832a
 workflow-job:1268.v6eb_e2ee1a_85a
