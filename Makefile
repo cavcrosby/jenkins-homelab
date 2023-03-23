@@ -66,8 +66,12 @@ ${HELP}:
 >	@echo '                                 project image (e.g. false/true, or 0/1)'
 
 .PHONY: ${SETUP}
-${SETUP}: ${DOCKER_ANSIBLE_INVENTORY} ${PYENV_POETRY_SETUP}
+${SETUP}: ${DOCKER_ANSIBLE_INVENTORY}
 >	${ANSIBLE_GALAXY} collection install --requirements-file ./requirements.yml
+>	${PYTHON} -m ${PIP} install \
+		--requirement "./requirements.txt" \
+		--requirement "./dev-requirements.txt"
+
 >	${PRE_COMMIT} install
 
 .PHONY: ${IMAGE}
