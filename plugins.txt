@@ -16,7 +16,7 @@ credentials-binding:523.vd859a_4b_122e6
 display-url-api:2.3.7
 durable-task:504.vb10d1ae5ba2f
 echarts-api:5.4.0-2
-email-ext:2.94
+email-ext:2.95
 font-awesome-api:6.3.0-1
 git:5.0.0
 git-client:4.1.0
