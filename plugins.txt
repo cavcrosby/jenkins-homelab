@@ -68,7 +68,7 @@ script-security:1229.v4880b_b_e905a_6
 snakeyaml-api:1.33-95.va_b_a_e3e47b_fa_4
 ssh-credentials:305.v8f4381501156
 sshd:3.275.v9e17c10f2571
-ssh-slaves:2.854.v7fd446b_337c9
+ssh-slaves:2.877.v365f5eb_a_b_eec
 structs:324.va_f5d6774f3a_d
 timestamper:1.22
 token-macro:321.vd7cc1f2a_52c8
