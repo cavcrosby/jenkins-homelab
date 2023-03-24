@@ -7,7 +7,7 @@ bouncycastle-api:2.27
 branch-api:2.1071.v1a_188a_562481
 build-timeout:1.28
 caffeine-api:2.9.3-65.v6a_47d0f4d1fe
-checks-api:1.8.1
+checks-api:2.0.0
 cloudbees-folder:6.815.v0dd5a_cb_40e0e
 command-launcher:90.v669d7ccb_7c31
 configuration-as-code:1569.vb_72405b_80249
