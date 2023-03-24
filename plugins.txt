@@ -75,7 +75,7 @@ token-macro:321.vd7cc1f2a_52c8
 trilead-api:2.84.v72119de229b_7
 uno-choice:2.6.4
 variant:59.vf075fe829ccb
-workflow-aggregator:590.v6a_d052e5a_a_b_5
+workflow-aggregator:596.v8c21c963d92d
 workflow-api:1208.v0cc7c6e0da_9e
 workflow-basic-steps:1010.vf7a_b_98e847c1
 workflow-cps:3641.vf58904a_b_b_5d8
