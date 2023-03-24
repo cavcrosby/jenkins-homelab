@@ -9,15 +9,25 @@
     ],
     "packageRules": [
         {
-            "matchManagers": ["github-actions"],
-            "matchUpdateTypes": ["major", "minor", "patch"],
+            "matchManagers": [
+                "github-actions"
+            ],
+            "matchUpdateTypes": [
+                "major",
+                "minor",
+                "patch"
+            ],
             "automerge": true,
             "automergeType": "branch",
             "rebaseWhen": "behind-base-branch"
         },
         {
-            "matchManagers": ["dockerfile"],
-            "matchUpdateTypes": ["digest"],
+            "matchManagers": [
+                "dockerfile"
+            ],
+            "matchUpdateTypes": [
+                "digest"
+            ],
             "automerge": true,
             "automergeType": "branch",
             "rebaseWhen": "behind-base-branch",
@@ -26,8 +36,14 @@
             ]
         },
         {
-            "matchManagers": ["jenkins"],
-            "matchUpdateTypes": ["major", "minor", "patch"],
+            "matchManagers": [
+                "jenkins"
+            ],
+            "matchUpdateTypes": [
+                "major",
+                "minor",
+                "patch"
+            ],
             "automerge": true,
             "automergeType": "branch",
             "rebaseWhen": "behind-base-branch"
