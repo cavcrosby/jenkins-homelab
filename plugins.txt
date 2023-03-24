@@ -11,7 +11,7 @@ checks-api:2.0.0
 cloudbees-folder:6.815.v0dd5a_cb_40e0e
 command-launcher:90.v669d7ccb_7c31
 configuration-as-code:1613.vb_e54b_445ed6f
-credentials:1214.v1de940103927
+credentials:1224.vc23ca_a_9a_2cb_0
 credentials-binding:523.vd859a_4b_122e6
 display-url-api:2.3.7
 durable-task:504.vb10d1ae5ba2f
