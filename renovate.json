@@ -2,11 +2,14 @@
     "extends": [
         "config:base"
     ],
-    "prConcurrentLimit": 4,
+    "prConcurrentLimit": 10,
     "timezone": "utc",
     "schedule": [
         "after 5:00 am before 11:00 am"
     ],
+    "pre-commit": {
+        "enabled": true
+    },
     "packageRules": [
         {
             "matchManagers": [
