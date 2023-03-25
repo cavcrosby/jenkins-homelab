@@ -12,12 +12,13 @@ on:  # yamllint disable-line rule:truthy
         required: false
         default: false
   schedule:
-    - cron: '5 11 * * 0'
+    # * is a special character in YAML so you have to quote this string
+    - cron: "5 11 * * 0"
   push:
     branches:
-      - '!*'
+      - "!*"
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
   release:
