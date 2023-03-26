@@ -5,7 +5,7 @@
     "prConcurrentLimit": 10,
     "timezone": "utc",
     "schedule": [
-        "after 5:00 am before 11:00 am"
+        "before 8:00 am also after 2:00 pm"
     ],
     "pre-commit": {
         "enabled": true
@@ -35,7 +35,7 @@
             "automergeType": "branch",
             "rebaseWhen": "behind-base-branch",
             "schedule": [
-                "after 3:00 am before 5:00 am on Tuesday every 2 weeks starting on the 1st week of the year"
+                "on Wednesday every 2 weeks starting on the 1st week of the year"
             ]
         },
         {
