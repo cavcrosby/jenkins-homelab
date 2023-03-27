@@ -16,7 +16,7 @@ display-url-api:2.3.7
 durable-task:504.vb10d1ae5ba2f
 echarts-api:5.4.0-3
 email-ext:2.95
-font-awesome-api:6.3.0-1
+font-awesome-api:6.3.0-2
 git:5.0.0
 git-client:4.2.0
 github:1.37.0
