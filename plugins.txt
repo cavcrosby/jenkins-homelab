@@ -14,7 +14,7 @@ credentials:1224.vc23ca_a_9a_2cb_0
 credentials-binding:523.vd859a_4b_122e6
 display-url-api:2.3.7
 durable-task:504.vb10d1ae5ba2f
-echarts-api:5.4.0-2
+echarts-api:5.4.0-3
 email-ext:2.95
 font-awesome-api:6.3.0-1
 git:5.0.0
