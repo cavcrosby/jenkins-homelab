@@ -51,7 +51,7 @@ pipeline-milestone-step:111.v449306f708b_7
 pipeline-model-api:2.2125.vddb_a_44a_d605e
 pipeline-model-definition:2.2125.vddb_a_44a_d605e
 pipeline-model-extensions:2.2125.vddb_a_44a_d605e
-pipeline-rest-api:2.31
+pipeline-rest-api:2.32
 pipeline-stage-step:305.ve96d0205c1c6
 pipeline-stage-tags-metadata:2.2125.vddb_a_44a_d605e
 pipeline-stage-view:2.31
