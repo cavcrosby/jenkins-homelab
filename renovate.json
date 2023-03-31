@@ -5,7 +5,7 @@
     "prConcurrentLimit": 10,
     "timezone": "utc",
     "schedule": [
-        "before 12:00 am also after 6:00 pm"
+        "before 12:00 pm also after 6:00 pm"
     ],
     "pre-commit": {
         "enabled": true
