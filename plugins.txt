@@ -36,7 +36,7 @@ jquery3-api:3.6.4-1
 jsch:0.1.55.61.va_e9ee26616e7
 junit:1189.v1b_e593637fa_e
 kubernetes:3909.v1f2c633e8590
-lockable-resources:1131.vb_7c3d377e723
+lockable-resources:1141.v7c5f8f31d2ee
 mailer:448.v5b_97805e3767
 matrix-auth:3.1.6
 matrix-project:785.v06b_7f47b_c631
