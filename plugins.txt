@@ -11,7 +11,7 @@ cloudbees-folder:6.815.v0dd5a_cb_40e0e
 command-launcher:90.v669d7ccb_7c31
 configuration-as-code:1625.v27444588cc3d
 credentials:1224.vc23ca_a_9a_2cb_0
-credentials-binding:523.vd859a_4b_122e6
+credentials-binding:523.525.vb_72269281873
 display-url-api:2.3.7
 durable-task:504.vb10d1ae5ba2f
 echarts-api:5.4.0-3
