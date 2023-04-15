@@ -102,11 +102,11 @@ ${HELP}:
 .PHONY: ${SETUP}
 ${SETUP}:
 >	eval "$${ANSIBLE_INVENTORY}" > "${ANSIBLE_INVENTORY_PATH}"
->	${ANSIBLE_GALAXY} collection install --requirements-file ./requirements.yml
 >	${PYTHON} -m ${PIP} install \
 		--requirement "./requirements.txt" \
 		--requirement "./dev-requirements.txt"
 
+>	${ANSIBLE_GALAXY} collection install --requirements-file "./requirements.yml"
 >	${PRE_COMMIT} install
 
 .PHONY: ${IMAGE}
