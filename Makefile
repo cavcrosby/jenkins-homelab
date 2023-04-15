@@ -135,7 +135,7 @@ ${DISMANTLE}:
 .PHONY: ${LINT}
 ${LINT}:
 >	@for fil in ${ANSIBLE_SRC}; do \
->		if echo $${fil} | grep --quiet '-'; then \
+>		if echo $${fil} | grep --quiet "-"; then \
 >			echo "make: $${fil} should not contain a dash in the filename"; \
 >		fi \
 >	done
