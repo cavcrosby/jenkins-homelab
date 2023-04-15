@@ -1,6 +1,34 @@
-include base.mk
+# special makefile variables
+.DEFAULT_GOAL := help
+.RECIPEPREFIX := >
 
 # recursively expanded variables
+SHELL = /usr/bin/sh
+TRUTHY_VALUES = \
+    true\
+    1
+
+ANSIBLE_INVENTORY_PATH = ./localhost
+ANSIBLE_SRC = $(shell find . \
+	\( \
+		\( -type f \) \
+		-and \( -name '*.yml' \) \
+	\) \
+	-and ! \( -name '.python-version' \) \
+	-and ! \( -path '*.git*' \) \
+)
+
+YAML_SRC = \
+	./.github/workflows\
+	./casc.yaml\
+	./.ansible-lint
+
+DOCKER_LATEST_VERSION_TAG = $(shell ${GIT} describe --tags --abbrev=0)
+export DOCKER_CONTEXT_TAG = latest
+export CONTAINER_NAME = jenkins-torkel
+export CONTAINER_NETWORK = jc1
+export CONTAINER_VOLUME = jenkins_home:/var/jenkins_home
+export DOCKER_REPO = cavcrosby/jenkins-torkel
 define ANSIBLE_INVENTORY =
 cat << _EOF_
 all:
@@ -11,39 +39,45 @@ _EOF_
 endef
 export ANSIBLE_INVENTORY
 
-# include other generic makefiles
-include docker.mk
-export CONTAINER_NAME = jenkins-torkel
-export CONTAINER_NETWORK = jc1
-export CONTAINER_VOLUME = jenkins_home:/var/jenkins_home
-export DOCKER_REPO = cavcrosby/jenkins-torkel
-DOCKER_VCS_LABEL = tech.cavcrosby.jenkins.torkel.vcs-repo=https://github.com/cavcrosby/jenkins-torkel
+ifneq ($(findstring ${IMAGE_RELEASE_BUILD},${TRUTHY_VALUES}),)
+	DOCKER_TARGET_IMAGES = \
+		${DOCKER_REPO}:${DOCKER_CONTEXT_TAG} \
+		${DOCKER_REPO}:${DOCKER_LATEST_VERSION_TAG}
+else
+	DOCKER_CONTEXT_TAG = test
+	DOCKER_TARGET_IMAGES = \
+		${DOCKER_REPO}:${DOCKER_CONTEXT_TAG}
+endif
 
-include python.mk
-include ansible.mk
-# overrides defaults set by included makefiles
-ANSIBLE_SRC = $(shell find . \
-	\( \
-		\( -type f \) \
-		-and \( -name '*.yml' \) \
-	\) \
-	-and ! \( -name '.python-version' \) \
-	-and ! \( -path '*.git*' \) \
-)
-
-include yamllint.mk
-YAML_SRC = \
-	./.github/workflows\
-	./casc.yaml\
-	./.ansible-lint
+# targets
+HELP = help
+SETUP = setup
+TEST = test
+CLEAN = clean
+IMAGE = image
+DEPLOY = deploy
+DISMANTLE = dismantle
+PUBLISH = publish
+LINT = lint
 
 # executables
+ANSIBLE_GALAXY = ansible-galaxy
+ANSIBLE_LINT = ansible-lint
+ANSIBLE_PLAYBOOK = ansible-playbook
+DOCKER = docker
+GAWK = gawk
+GIT = git
+PYTHON = python
+PIP = pip
 PRE_COMMIT = pre-commit
+YAMLLINT = yamllint
 
 # simply expanded variables
 executables := \
-	${python_executables}\
-	${docker_executables}
+	${DOCKER}\
+	${GAWK}\
+	${GIT}\
+	${PYTHON}
 
 _check_executables := $(foreach exec,${executables},$(if $(shell command -v ${exec}),pass,$(error "No ${exec} in PATH")))
 
@@ -66,7 +100,8 @@ ${HELP}:
 >	@echo '                                 project image (e.g. false/true, or 0/1)'
 
 .PHONY: ${SETUP}
-${SETUP}: ${DOCKER_ANSIBLE_INVENTORY}
+${SETUP}:
+>	eval "$${ANSIBLE_INVENTORY}" > "${ANSIBLE_INVENTORY_PATH}"
 >	${ANSIBLE_GALAXY} collection install --requirements-file ./requirements.yml
 >	${PYTHON} -m ${PIP} install \
 		--requirement "./requirements.txt" \
@@ -75,23 +110,51 @@ ${SETUP}: ${DOCKER_ANSIBLE_INVENTORY}
 >	${PRE_COMMIT} install
 
 .PHONY: ${IMAGE}
-${IMAGE}: ${DOCKER_IMAGE}
+${IMAGE}:
+>	${DOCKER} build \
+		--build-arg BRANCH="$$(${GIT} branch --show-current)" \
+		--build-arg COMMIT="$$(${GIT} show --format=%h --no-patch)" \
+		$(addprefix --tag=,${DOCKER_TARGET_IMAGES}) \
+		.
 
 .PHONY: ${DEPLOY}
-${DEPLOY}: ${DOCKER_TEST_DEPLOY}
+${DEPLOY}:
+>	 ${ANSIBLE_PLAYBOOK} \
+		--ask-become-pass \
+		--inventory "${ANSIBLE_INVENTORY_PATH}" \
+		"./playbooks/create_container.yml"
 
 .PHONY: ${DISMANTLE}
-${DISMANTLE}: ${DOCKER_TEST_DEPLOY_DISMANTLE}
+${DISMANTLE}:
+>	${DOCKER} rm --force "${CONTAINER_NAME}"
+>	${DOCKER} network rm --force "${CONTAINER_NETWORK}"
+>	${DOCKER} volume rm --force "$$(echo "${CONTAINER_VOLUME}" \
+		| ${GAWK} --field-separator ':' '{print $$1}')"
 
 .PHONY: ${LINT}
-${LINT}: ${ANSIBLE_LINT} ${YAMLLINT}
+${LINT}:
+>	@for fil in ${ANSIBLE_SRC}; do \
+>		if echo $${fil} | grep --quiet '-'; then \
+>			echo "make: $${fil} should not contain a dash in the filename"; \
+>		fi \
+>	done
+>	${ANSIBLE_LINT}
+>	${YAMLLINT} ${YAML_SRC}
 
 .PHONY: ${PUBLISH}
-${PUBLISH}: ${DOCKER_PUBLISH}
+${PUBLISH}:
+>	@for docker_target_image in ${DOCKER_TARGET_IMAGES}; do \
+>		echo ${DOCKER} push "$${docker_target_image}"; \
+>		${DOCKER} push "$${docker_target_image}"; \
+>	done
 
 .PHONY: ${TEST}
-${TEST}: ${DOCKER_IMAGE}
+${TEST}: ${IMAGE}
 >	${PYTHON} -m unittest --verbose
 
 .PHONY: ${CLEAN}
-${CLEAN}: ${DOCKER_IMAGE_CLEAN}
+${CLEAN}:
+>	${DOCKER} rmi --force ${DOCKER_REPO}:test $$(${DOCKER} images \
+		--filter label="tech.cavcrosby.jenkins.torkel.vcs-repo=https://github.com/cavcrosby/jenkins-torkel" \
+		--filter dangling="true" \
+		--format "{{.ID}}")

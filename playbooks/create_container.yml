@@ -3,7 +3,7 @@
   hosts: localhost
   connection: local
   vars:
-    ansible_python_interpreter: "{{ lookup('env', 'PYENV_ROOT') }}/versions/{{ lookup('env', 'PYTHON_VIRTUALENV_NAME') }}/bin/python"
+    ansible_python_interpreter: "{{ lookup('env', 'VIRTUAL_ENV') }}/bin/python"
 
   roles:
     - role: cavcrosby.general.jenkins_containers

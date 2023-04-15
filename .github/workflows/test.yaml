@@ -43,9 +43,4 @@ jobs:
 
       - name: Run tests
         run: |
-          export CONTAINER_NAME="jenkins-torkel"
-          export DOCKER_REPO="cavcrosby/jenkins-torkel"
-          export DOCKER_CONTEXT_TAG="test"
-
-          docker build --tag "${DOCKER_REPO}:${DOCKER_CONTEXT_TAG}" "${PWD}"
-          python -m unittest --verbose
+          make test
