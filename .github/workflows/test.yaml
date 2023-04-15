@@ -31,8 +31,8 @@ jobs:
         uses: mxschmitt/action-tmate@v3
         with:
           limit-access-to-actor: true
-        # Single quotes required other GitHub actions throws 'Unexpected symbol'
-        # error.
+        # Single quotes required otherwise GitHub actions throws
+        # 'Unexpected symbol' error.
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug }}
 
       - name: Run project setup
