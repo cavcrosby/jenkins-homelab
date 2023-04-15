@@ -102,6 +102,7 @@ ${HELP}:
 .PHONY: ${SETUP}
 ${SETUP}:
 >	eval "$${ANSIBLE_INVENTORY}" > "${ANSIBLE_INVENTORY_PATH}"
+>	${PYTHON} -m ${PIP} install --upgrade "${PIP}"
 >	${PYTHON} -m ${PIP} install \
 		--requirement "./requirements.txt" \
 		--requirement "./dev-requirements.txt"
