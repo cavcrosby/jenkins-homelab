@@ -5,7 +5,7 @@ bootstrap5-api:5.2.2-2
 bouncycastle-api:2.27
 branch-api:2.1071.v1a_188a_562481
 build-timeout:1.30
-caffeine-api:2.9.3-65.v6a_47d0f4d1fe
+caffeine-api:2.9.3-111.va_4034a_92d8b_c
 checks-api:2.0.0
 cloudbees-folder:6.815.v0dd5a_cb_40e0e
 command-launcher:90.v669d7ccb_7c31
