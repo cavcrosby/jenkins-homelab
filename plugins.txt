@@ -8,7 +8,7 @@ build-timeout:1.30
 caffeine-api:3.1.6-115.vb_8b_b_328e59d8
 checks-api:2.0.0
 cloudbees-folder:6.815.v0dd5a_cb_40e0e
-command-launcher:90.v669d7ccb_7c31
+command-launcher:100.v2f6722292ee8
 configuration-as-code:1625.v27444588cc3d
 credentials:1224.vc23ca_a_9a_2cb_0
 credentials-binding:604.vb_64480b_c56ca_
