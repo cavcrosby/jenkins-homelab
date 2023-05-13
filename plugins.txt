@@ -17,7 +17,7 @@ durable-task:506.v1b_3e14b_6f5da_
 echarts-api:5.4.0-3
 email-ext:2.96
 font-awesome-api:6.3.0-2
-git:5.0.1
+git:5.0.2
 git-client:4.2.0
 github:1.37.0
 github-api:1.303-417.ve35d9dd78549
