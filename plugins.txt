@@ -3,7 +3,7 @@ apache-httpcomponents-client-4-api:4.5.14-150.v7a_b_9d17134a_5
 bootstrap4-api:4.6.0-5
 bootstrap5-api:5.2.2-3
 bouncycastle-api:2.27
-branch-api:2.1071.v1a_188a_562481
+branch-api:2.1092.vda_3c2a_a_f0c11
 build-timeout:1.30
 caffeine-api:3.1.6-115.vb_8b_b_328e59d8
 checks-api:2.0.0
