@@ -32,7 +32,7 @@ jjwt-api:0.11.5-77.v646c772fddb_0
 jnr-posix-api:3.1.16-2
 jobConfigHistory:1207.vd28a_54732f92
 job-dsl:1.83
-jquery3-api:3.6.4-1
+jquery3-api:3.7.0-1
 jsch:0.2.8-65.v052c39de79b_2
 junit:1202.v79a_986785076
 kubernetes:3923.v294a_d4250b_91
