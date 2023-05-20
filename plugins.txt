@@ -14,7 +14,7 @@ credentials:1254.vb_96f366e7b_a_d
 credentials-binding:604.vb_64480b_c56ca_
 display-url-api:2.3.7
 durable-task:507.v050055d0cb_dd
-echarts-api:5.4.0-3
+echarts-api:5.4.0-4
 email-ext:2.97
 font-awesome-api:6.3.0-2
 git:5.0.2
