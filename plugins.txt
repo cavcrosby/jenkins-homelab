@@ -37,7 +37,7 @@ jsch:0.2.8-65.v052c39de79b_2
 junit:1202.v79a_986785076
 kubernetes:3923.v294a_d4250b_91
 lockable-resources:1156.v5e9f897ece02
-mailer:448.v5b_97805e3767
+mailer:457.v3f72cb_e015e5
 matrix-auth:3.1.7
 matrix-project:789.v57a_725b_63c79
 okhttp-api:4.10.0-132.v7a_7b_91cef39c
