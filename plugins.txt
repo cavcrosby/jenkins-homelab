@@ -30,7 +30,7 @@ jaxb:2.3.8-1
 jdk-tool:66.vd8fa_64ee91b_d
 jjwt-api:0.11.5-77.v646c772fddb_0
 jnr-posix-api:3.1.16-2
-jobConfigHistory:1207.vd28a_54732f92
+jobConfigHistory:1212.vd4470d08ff12
 job-dsl:1.83
 jquery3-api:3.7.0-1
 jsch:0.2.8-65.v052c39de79b_2
