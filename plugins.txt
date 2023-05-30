@@ -34,7 +34,7 @@ jobConfigHistory:1212.vd4470d08ff12
 job-dsl:1.83
 jquery3-api:3.7.0-1
 jsch:0.2.8-65.v052c39de79b_2
-junit:1202.v79a_986785076
+junit:1207.va_09d5100410f
 kubernetes:3937.vd7b_82db_e347b_
 lockable-resources:1156.v5e9f897ece02
 mailer:457.v3f72cb_e015e5
