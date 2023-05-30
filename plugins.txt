@@ -18,7 +18,7 @@ echarts-api:5.4.0-4
 email-ext:2.97
 font-awesome-api:6.3.0-2
 git:5.0.2
-git-client:4.2.0
+git-client:4.3.0
 github:1.37.1
 github-api:1.314-431.v78d72a_3fe4c3
 github-branch-source:1703.vd5a_2b_29c6cdc
