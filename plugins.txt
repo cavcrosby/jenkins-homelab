@@ -1,6 +1,6 @@
 antisamy-markup-formatter:159.v25b_c67cd35fb_
 apache-httpcomponents-client-4-api:4.5.14-150.v7a_b_9d17134a_5
-bootstrap5-api:5.2.3-1
+bootstrap5-api:5.3.0-1
 bouncycastle-api:2.28
 branch-api:2.1105.v472604208c55
 build-timeout:1.31
