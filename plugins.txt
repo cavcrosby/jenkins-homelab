@@ -39,7 +39,7 @@ lockable-resources:1156.v5e9f897ece02
 mailer:457.v3f72cb_e015e5
 matrix-auth:3.1.8
 matrix-project:789.v57a_725b_63c79
-okhttp-api:4.10.0-136.v1d8ce1b_1db_72
+okhttp-api:4.11.0-145.vcb_8de402ef81
 pam-auth:1.10
 parameterized-scheduler:1.2
 pipeline-build-step:491.v1fec530da_858
