@@ -37,7 +37,7 @@ junit:1214.va_2f9db_3e6de0
 kubernetes:3966.v10fb_81791896
 lockable-resources:1172.v4b_8fc8eed570
 mailer:457.v3f72cb_e015e5
-matrix-auth:3.1.8
+matrix-auth:3.1.9
 matrix-project:789.v57a_725b_63c79
 okhttp-api:4.11.0-145.vcb_8de402ef81
 pam-auth:1.10
