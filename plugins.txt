@@ -42,7 +42,7 @@ matrix-project:789.v57a_725b_63c79
 okhttp-api:4.11.0-145.vcb_8de402ef81
 pam-auth:1.10
 parameterized-scheduler:1.2
-pipeline-build-step:496.v2449a_9a_221f2
+pipeline-build-step:505.v5f0844d8d126
 pipeline-github-lib:42.v0739460cda_c4
 pipeline-graph-analysis:202.va_d268e64deb_3
 pipeline-input-step:468.va_5db_051498a_4
