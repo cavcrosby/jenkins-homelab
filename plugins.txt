@@ -11,7 +11,7 @@ command-launcher:100.v2f6722292ee8
 configuration-as-code:1670.v564dc8b_982d0
 credentials:1271.v54b_1c2c6388a_
 credentials-binding:631.v861c06d062b_4
-display-url-api:2.3.7
+display-url-api:2.3.8
 durable-task:513.vc48a_a_075a_d93
 echarts-api:5.4.0-5
 email-ext:2.100
