@@ -26,7 +26,7 @@ jackson2-api:2.15.2-350.v0c2f3f8fc595
 javax-activation-api:1.2.0-6
 javax-mail-api:1.6.2-9
 jaxb:2.3.8-1
-jdk-tool:66.vd8fa_64ee91b_d
+jdk-tool:73.vddf737284550
 jjwt-api:0.11.5-77.v646c772fddb_0
 jnr-posix-api:3.1.17-1
 jobConfigHistory:1227.v7a_79fc4dc01f
