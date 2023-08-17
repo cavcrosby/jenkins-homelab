@@ -67,7 +67,7 @@ structs:324.va_f5d6774f3a_d
 timestamper:1.26
 token-macro:384.vf35b_f26814ec
 trilead-api:2.84.v72119de229b_7
-uno-choice:2.7
+uno-choice:2.7.2
 variant:59.vf075fe829ccb
 workflow-aggregator:596.v8c21c963d92d
 workflow-api:1259.vb_47f14fffc8a_
