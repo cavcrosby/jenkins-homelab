@@ -13,7 +13,7 @@ credentials:1271.v54b_1c2c6388a_
 credentials-binding:636.v55f1275c7b_27
 display-url-api:2.3.9
 durable-task:523.va_a_22cf15d5e0
-echarts-api:5.4.0-5
+echarts-api:5.4.0-6
 email-ext:2.101
 font-awesome-api:6.4.0-2
 git:5.2.0
