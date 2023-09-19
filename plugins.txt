@@ -20,7 +20,7 @@ git:5.2.0
 git-client:4.5.0
 github:1.37.3
 github-api:1.314-431.v78d72a_3fe4c3
-github-branch-source:1740.v51d5810e9e8c
+github-branch-source:1741.va_3028eb_9fd21
 git-server:99.va_0826a_b_cdfa_d
 jackson2-api:2.15.2-350.v0c2f3f8fc595
 javax-activation-api:1.2.0-6
