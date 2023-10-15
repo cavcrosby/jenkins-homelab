@@ -26,7 +26,6 @@ YAML_SRC = \
 DOCKER_LATEST_VERSION_TAG = $(shell ${GIT} describe --tags --abbrev=0)
 export DOCKER_CONTEXT_TAG = latest
 export CONTAINER_NAME = jenkins-torkel
-export CONTAINER_NETWORK = jc1
 export CONTAINER_VOLUME = jenkins_home:/var/jenkins_home
 export DOCKER_REPO = cavcrosby/jenkins-torkel
 define ANSIBLE_INVENTORY =
@@ -34,7 +33,8 @@ cat << _EOF_
 all:
   hosts:
     localhost:
-      email_secret:
+      jenkins_admin_email_secret: ""
+      jenkins_github_credential_secret: ""
 _EOF_
 endef
 export ANSIBLE_INVENTORY
@@ -61,7 +61,6 @@ PUBLISH = publish
 LINT = lint
 
 # executables
-ANSIBLE_GALAXY = ansible-galaxy
 ANSIBLE_LINT = ansible-lint
 ANSIBLE_PLAYBOOK = ansible-playbook
 DOCKER = docker
@@ -107,7 +106,6 @@ ${SETUP}:
 		--requirement "./requirements.txt" \
 		--requirement "./dev-requirements.txt"
 
->	${ANSIBLE_GALAXY} collection install --requirements-file "./requirements.yml"
 >	${PRE_COMMIT} install
 
 .PHONY: ${IMAGE}
@@ -128,7 +126,6 @@ ${DEPLOY}:
 .PHONY: ${DISMANTLE}
 ${DISMANTLE}:
 >	${DOCKER} rm --force "${CONTAINER_NAME}"
->	${DOCKER} network rm --force "${CONTAINER_NETWORK}"
 >	${DOCKER} volume rm --force "$$(echo "${CONTAINER_VOLUME}" \
 		| ${GAWK} --field-separator ':' '{print $$1}')"
 

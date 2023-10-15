@@ -5,13 +5,28 @@
   vars:
     ansible_python_interpreter: "{{ lookup('env', 'VIRTUAL_ENV') }}/bin/python"
 
-  roles:
-    - role: cavcrosby.general.jenkins_containers
-      vars:
-        image_to_deploy: torkel
-        image_tag: "{{ lookup('env', 'DOCKER_CONTEXT_TAG') }}"
-        create_container_network: true
-        container_name: "{{ lookup('env', 'CONTAINER_NAME') }}"
-        container_network: "{{ lookup('env', 'CONTAINER_NETWORK') }}"
-        container_volume: "{{ lookup('env', 'CONTAINER_VOLUME') }}"
-        jenkins_admin_email_secret: "{{ email_secret }}"
+  tasks:
+    - name: Deploy the container
+      community.docker.docker_container:
+        name: "{{ lookup('env', 'CONTAINER_NAME') }}"
+        image: cavcrosby/jenkins-torkel:{{ lookup('env', 'DOCKER_CONTEXT_TAG') }}
+        published_ports:
+          - 8080:8080
+          - 50000:50000
+        cpus: 1.0
+        memory: 1G
+        volumes: "{{ lookup('env', 'CONTAINER_VOLUME') }}"
+        env:
+          JENKINS_URL: 127.0.0.1:8080
+          JENKINS_ADMIN_ID: cavcrosby
+          JENKINS_ADMIN_PASSWORD: Passw0rd!
+          JENKINS_ADMIN_FULLNAME: Conner Crosby
+          JENKINS_ADMIN_EMAIL: cavcrosby@gmail.com
+          JENKINS_ADMIN_EMAIL_SECRET: "{{ jenkins_admin_email_secret }}"
+          SMTP_SERVER_ADDR: smtp.gmail.com
+          JENKINS_GITHUB_CREDENTIAL_ID: cavcrosby-github
+          JENKINS_GITHUB_CREDENTIAL_USERNAME: cavcrosby
+          JENKINS_GITHUB_CREDENTIAL_SECRET: "{{ jenkins_github_credential_secret }}"
+      # bool filter is used because even if ANSIBLE_LOG_SECRETS is 'false', it still
+      # returned the 'true' case of false. Which means it would log secrets.
+      no_log: "{{ lookup('env', 'ANSIBLE_LOG_SECRETS') | bool | ternary(false, true, true) }}"
