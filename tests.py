@@ -14,11 +14,6 @@ import docker
 # constants and other program configurations
 _docker_client = docker.from_env()
 
-_DOCKER_TEST_CONTAINER_NAME = f"{os.environ['CONTAINER_NAME']}-tests"
-_DOCKER_TEST_IMAGE = (
-    f"{os.environ['DOCKER_REPO']}:{os.environ['DOCKER_CONTEXT_TAG']}"
-)
-DOCKER_TESTS_NETWORK = "jc-tests"
 JENKINS_ADMIN_ID = "cavcrosby"
 JENKINS_ADMIN_PASSWORD = "Passw0rd!"
 JENKINS_HTTP_PORT = "8080"
@@ -30,18 +25,14 @@ class TestJenkinsHealth(unittest.TestCase):
 
     def setUp(self):
         """Set up environment before running test method(s)."""
-        self.docker_network = _docker_client.networks.create(
-            DOCKER_TESTS_NETWORK
-        )
         self.container = _docker_client.containers.run(
             detach=True,
             environment={
                 "JENKINS_ADMIN_ID": JENKINS_ADMIN_ID,
                 "JENKINS_ADMIN_PASSWORD": JENKINS_ADMIN_PASSWORD,
             },
-            image=_DOCKER_TEST_IMAGE,
-            network=DOCKER_TESTS_NETWORK,
-            name=_DOCKER_TEST_CONTAINER_NAME,
+            image=f"{os.environ['DOCKER_REPO']}:{os.environ['DOCKER_CONTEXT_TAG']}",  # noqa: E501
+            name=f"{os.environ['CONTAINER_NAME']}-tests",
             ports={
                 f"{JENKINS_HTTP_PORT}/tcp": JENKINS_HTTP_PORT,
                 f"{JENKINS_AGENT_PORT}/tcp": JENKINS_AGENT_PORT,
@@ -53,7 +44,6 @@ class TestJenkinsHealth(unittest.TestCase):
         """Tear down environment after running test method(s)."""
         self.container.kill()
         self.container.remove()
-        self.docker_network.remove()
 
     def test_jenkins_health(self):
         """Check if Jenkins was able to initialize successfully."""
