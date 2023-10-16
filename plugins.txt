@@ -38,7 +38,7 @@ kubernetes:4054.v2da_8e2794884
 lockable-resources:1185.v0c528656ce04
 mailer:463.vedf8358e006b_
 matrix-auth:3.2.1
-matrix-project:808.v5a_b_5f56d6966
+matrix-project:818.v7eb_e657db_924
 okhttp-api:4.11.0-157.v6852a_a_fa_ec11
 pam-auth:1.10
 parameterized-scheduler:255.v73827fcdf618
