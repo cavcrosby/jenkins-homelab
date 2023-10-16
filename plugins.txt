@@ -22,7 +22,7 @@ github:1.37.3
 github-api:1.316-451.v15738eef3414
 github-branch-source:1741.va_3028eb_9fd21
 git-server:99.va_0826a_b_cdfa_d
-jackson2-api:2.15.2-350.v0c2f3f8fc595
+jackson2-api:2.15.3-366.vfe8d1fa_f8c87
 javax-activation-api:1.2.0-6
 javax-mail-api:1.6.2-9
 jaxb:2.3.8-1
