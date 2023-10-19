@@ -1,5 +1,5 @@
 ansible-lint ==6.20.3
-api4jenkins ==1.15.0
+api4jenkins ==2.0.0
 black ==23.10.0
 flake8 ==6.1.0
 flake8-docstrings ==1.7.0
