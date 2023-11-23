@@ -25,7 +25,7 @@ jobs:
           # Quoting is necessary as otherwise the value is interpreted as a
           # number, which could truncate digits.
           # https://github.com/actions/setup-python/issues/160
-          python-version: "3.9"
+          python-version: "3.11"
 
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3

@@ -2,7 +2,7 @@
 name = "jenkins-torkel"
 version = "1.0.0"
 description = "A Jenkins instance within a docker image"
-requires-python = ">=3.9,<3.10"
+requires-python = ">=3.11,<3.12"
 
 [[authors]]
 name = "Conner Crosby"
