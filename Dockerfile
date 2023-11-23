@@ -2,9 +2,9 @@ FROM jenkins/jenkins:jdk11@sha256:53e317cc190dc26a35eede18f1c9c38c91e424dc97506a
 
 ARG BRANCH
 ARG COMMIT
-LABEL tech.cavcrosby.jenkins.torkel.branch="${BRANCH}"
-LABEL tech.cavcrosby.jenkins.torkel.commit="${COMMIT}"
-LABEL tech.cavcrosby.jenkins.torkel.vcs-repo="https://github.com/cavcrosby/jenkins-torkel"
+LABEL tech.cavcrosby.jenkins.homelab.branch="${BRANCH}"
+LABEL tech.cavcrosby.jenkins.homelab.commit="${COMMIT}"
+LABEL tech.cavcrosby.jenkins.homelab.vcs-repo="https://github.com/cavcrosby/jenkins-homelab"
 
 ENV CASC_JENKINS_CONFIG_FILE "casc.yaml"
 ENV PLUGINS_FILE "plugins.txt"

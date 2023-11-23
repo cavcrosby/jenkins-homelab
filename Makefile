@@ -25,9 +25,9 @@ YAML_SRC = \
 
 DOCKER_LATEST_VERSION_TAG = $(shell ${GIT} describe --tags --abbrev=0)
 export DOCKER_CONTEXT_TAG = latest
-export CONTAINER_NAME = jenkins-torkel
+export CONTAINER_NAME = jenkins-homelab
 export CONTAINER_VOLUME = jenkins_home:/var/jenkins_home
-export DOCKER_REPO = cavcrosby/jenkins-torkel
+export DOCKER_REPO = cavcrosby/jenkins-homelab
 define ANSIBLE_INVENTORY =
 cat << _EOF_
 all:
@@ -153,6 +153,6 @@ ${TEST}: ${IMAGE}
 .PHONY: ${CLEAN}
 ${CLEAN}:
 >	${DOCKER} rmi --force ${DOCKER_REPO}:test $$(${DOCKER} images \
-		--filter label="tech.cavcrosby.jenkins.torkel.vcs-repo=https://github.com/cavcrosby/jenkins-torkel" \
+		--filter label="tech.cavcrosby.jenkins.homelab.vcs-repo=https://github.com/cavcrosby/jenkins-homelab" \
 		--filter dangling="true" \
 		--format "{{.ID}}")

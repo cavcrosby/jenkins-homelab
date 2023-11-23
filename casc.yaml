@@ -33,7 +33,7 @@ jenkins:
         containerCap: 10
         containerCapStr: "10"
         name: kubernetes
-        namespace: jenkins-torkel
+        namespace: jenkins-homelab
   crumbIssuer:
     standard:
       excludeClientIPFromCrumb: true

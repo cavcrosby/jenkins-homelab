@@ -1,6 +1,6 @@
-# jenkins-torkel
+# jenkins-homelab
 
-Jenkins instance that serves CI/CD for the majority of my source code repositories.
+The primary Jenkins instance that is used within my homelab.
 
 ## License
 

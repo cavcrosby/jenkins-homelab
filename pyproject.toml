@@ -1,7 +1,7 @@
 [project]
-name = "jenkins-torkel"
+name = "jenkins-homelab"
 version = "1.0.0"
-description = "A Jenkins instance within a docker image"
+description = "The primary Jenkins instance that is used within my homelab"
 requires-python = ">=3.11,<3.12"
 
 [[authors]]

@@ -1,5 +1,5 @@
 ---
-- name: Deploy a jenkins-torkel container
+- name: Deploy a jenkins-homelab container
   hosts: localhost
   connection: local
   vars:
@@ -9,7 +9,7 @@
     - name: Deploy the container
       community.docker.docker_container:
         name: "{{ lookup('env', 'CONTAINER_NAME') }}"
-        image: cavcrosby/jenkins-torkel:{{ lookup('env', 'DOCKER_CONTEXT_TAG') }}
+        image: cavcrosby/jenkins-homelab:{{ lookup('env', 'DOCKER_CONTEXT_TAG') }}
         published_ports:
           - 8080:8080
           - 50000:50000
