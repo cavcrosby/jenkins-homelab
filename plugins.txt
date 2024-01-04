@@ -34,7 +34,7 @@ job-dsl:1.87
 jquery3-api:3.7.1-1
 jsch:0.2.16-86.v42e010d9484b_
 junit:1252.vfc2e5efa_294f
-kubernetes:4151.v6fa_f0fb_0b_4c9
+kubernetes:4174.v4230d0ccd951
 lockable-resources:1218.va_3dd45e2b_fa_7
 mailer:463.vedf8358e006b_
 matrix-auth:3.2.1
