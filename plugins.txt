@@ -47,7 +47,7 @@ pipeline-github-lib:42.v0739460cda_c4
 pipeline-graph-analysis:202.va_d268e64deb_3
 pipeline-input-step:477.v339683a_8d55e
 pipeline-milestone-step:111.v449306f708b_7
-pipeline-model-api:2.2168.vf921b_4e72c73
+pipeline-model-api:2.2169.vee7cd0efc13e
 pipeline-model-definition:2.2168.vf921b_4e72c73
 pipeline-model-extensions:2.2168.vf921b_4e72c73
 pipeline-rest-api:2.34
