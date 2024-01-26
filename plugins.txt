@@ -9,7 +9,7 @@ checks-api:2.0.2
 cloudbees-folder:6.899.vce8a_b_439f106
 command-launcher:107.v773860566e2e
 configuration-as-code:1775.v810dc950b_514
-credentials:1311.vcf0a_900b_37c2
+credentials:1317.v0ce519a_92b_3e
 credentials-binding:657.v2b_19db_7d6e6d
 display-url-api:2.200.vb_9327d658781
 durable-task:543.v262f6a_803410
