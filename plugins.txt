@@ -12,7 +12,7 @@ configuration-as-code:1775.v810dc950b_514
 credentials:1319.v7eb_51b_3a_c97b_
 credentials-binding:657.v2b_19db_7d6e6d
 display-url-api:2.200.vb_9327d658781
-durable-task:543.v262f6a_803410
+durable-task:547.vd1ea_007d100c
 echarts-api:5.4.3-2
 email-ext:2.104
 font-awesome-api:6.5.1-2
