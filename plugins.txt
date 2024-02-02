@@ -18,7 +18,7 @@ email-ext:2.104
 font-awesome-api:6.5.1-2
 git:5.2.1
 git-client:4.6.0
-github:1.37.3.1
+github:1.38.0
 github-api:1.318-461.v7a_c09c9fa_d63
 github-branch-source:1772.va_69eda_d018d4
 git-server:114.v068a_c7cc2574
