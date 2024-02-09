@@ -41,7 +41,7 @@ matrix-auth:3.2.1
 matrix-project:822.824.v14451b_c0fd42
 okhttp-api:4.11.0-172.vda_da_1feeb_c6e
 pam-auth:1.10
-parameterized-scheduler:255.v73827fcdf618
+parameterized-scheduler:262.v00f3d90585cc
 pipeline-build-step:540.vb_e8849e1a_b_d8
 pipeline-github-lib:42.v0739460cda_c4
 pipeline-graph-analysis:202.va_d268e64deb_3
